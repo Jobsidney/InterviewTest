@@ -37,7 +37,7 @@ function FeePayment() {
       amount: amount,
       student_id: student_id,
     };
-    fetch(`${baseUrl}/fee-payment/`, {
+    fetch(`https://mlight.nanesoft-lab.com/fee-payment/`, {
       method: "POST",
       headers: {
         Authorization: `Token ${token}`,

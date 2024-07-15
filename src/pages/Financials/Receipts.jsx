@@ -10,7 +10,7 @@ function Receipts() {
   const [loading, setLoading] = useState(true);
   const student_id = JSON.parse(localStorage.getItem("userData")).userData.id;
   const fetchReceipts = () => {
-    fetch(`${baseUrl}/transactions/?search=${student_id}`, {
+    fetch(`https://mlight.nanesoft-lab.com/transactions/?search=${student_id}`, {
       method: "GET",
       headers: {
         "Content-Type": "application/json",

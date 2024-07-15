@@ -21,7 +21,7 @@ function Content({ userData, courseData, done2, dueDates }) {
   const [structureDetails, setStructureDetails] = useState([]);
   const student_id = userData.id;
   function fetchCourse() {
-    fetch(`${baseUrl}/generate/fee-stracture/?student_id=${student_id}`, {
+    fetch(`https://mlight.nanesoft-lab.com/generate/fee-stracture/?student_id=${student_id}`, {
       method: "GET",
       headers: {
         "Content-Type": "application/json",
@@ -41,7 +41,7 @@ function Content({ userData, courseData, done2, dueDates }) {
       student_ids: `${student_id}`,
     };
     if (token) {
-      fetch(`${baseUrl}/send-reminders/`, {
+      fetch(`https://mlight.nanesoft-lab.com/send-reminders/`, {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
@@ -98,7 +98,7 @@ function Content({ userData, courseData, done2, dueDates }) {
     }
   };
   function fetchFeeDetails() {
-    fetch(`${baseUrl}/transactions/?search=${student_id}`, {
+    fetch(`https://mlight.nanesoft-lab.com/transactions/?search=${student_id}`, {
       method: "GET",
       headers: {
         "Content-Type": "application/json",
@@ -200,7 +200,7 @@ function Content({ userData, courseData, done2, dueDates }) {
   }
 
   const fetchCohortName = (id) => {
-    fetch(`${baseUrl}/cohort/${id}/`, {
+    fetch(`https://mlight.nanesoft-lab.com/cohort/${id}/`, {
       method: "GET",
     })
       .then((res) => res.json())
@@ -211,7 +211,7 @@ function Content({ userData, courseData, done2, dueDates }) {
       });
   };
   function fetchMentors() {
-    fetch(`${baseUrl}/users/`, {
+    fetch(`https://mlight.nanesoft-lab.com/users/`, {
       method: "GET",
       headers: {
         "Content-Type": "application/json",

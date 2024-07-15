@@ -24,7 +24,7 @@ function AddCourse() {
       formDataObject[key] = value;
     });
     formDataObject["accept_mode"] = acceptMode;
-    fetch(`${baseUrl}/courses/`, {
+    fetch(`https://mlight.nanesoft-lab.com/courses/`, {
       method: "POST",
       headers: {
         "Content-Type": "application/json",

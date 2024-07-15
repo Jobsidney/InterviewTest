@@ -36,7 +36,7 @@ function UpdateStudentDetails() {
     formData.append("phone", phone);
 
     console.log(formData, "ll");
-    fetch(`${baseUrl}/update-profile/`, {
+    fetch(`https://mlight.nanesoft-lab.com/update-profile/`, {
       method: "PUT",
       headers: {
         // 'Content-Type': 'form-data',

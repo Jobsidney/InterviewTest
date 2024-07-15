@@ -40,7 +40,7 @@ function AllTransactions() {
     }
 
     try {
-      const response = await fetch(`${baseUrl}/users/${studentId}/`, {
+      const response = await fetch(`https://mlight.nanesoft-lab.com/users/${studentId}/`, {
         method: "GET",
         headers: {
           "Content-Type": "application/json",
@@ -66,7 +66,7 @@ function AllTransactions() {
 
   const fetchFeeStatements = async () => {
     try {
-      const response = await fetch(`${baseUrl}/transactions/`, {
+      const response = await fetch(`https://mlight.nanesoft-lab.com/transactions/`, {
         method: "GET",
         headers: {
           "Content-Type": "application/json",

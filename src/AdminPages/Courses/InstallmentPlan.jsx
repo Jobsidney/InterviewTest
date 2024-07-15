@@ -3,6 +3,7 @@ import { GiLaptop } from "react-icons/gi";
 import { CgSpinnerTwo } from "react-icons/cg";
 import { toast } from "react-toastify";
 import baseUrl from "../../BaseUrl";
+import { Toaster } from "react-hot-toast";
 
 function InstallmentPlan() {
     const [loading, setLoading] = useState(false);
@@ -15,7 +16,7 @@ function InstallmentPlan() {
       formData.forEach((value, key) => {
         formDataObject[key] = value;
       });
-      fetch(`${baseUrl}/installement-plans/`, {
+      fetch(`https://mlight.nanesoft-lab.com/installement-plans/`, {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
@@ -62,50 +63,87 @@ function InstallmentPlan() {
         });
     };
   return (
-    <div className="w-full h-full flex items-center justify-center">
-      <form
+
+    <>
+    <Toaster />
+    <div className="main-content">
+    <div className="page-content">
+    <div className="container-fluid">
+    <div className="row">
+            <div className="col-12">
+                <div className="page-title-box d-sm-flex align-items-center justify-content-between">
+                <h4 className="card-title mb-4">Installment Plan</h4>
+
+                          
+                
+
+                </div>
+            </div>
+        </div>
+        <div className="row">
+      <div className="col-xl-12">
+                  <div className="card ">
+                      <div className="card-body ">
+                      <div className="row col-xl-6 mx-auto">
+                      <div className='mb-5'>
+                      <div className="mb-5 col-6 mx-auto text-center">
+            
+            <img
+              className=" object-cover" width={"80px"}
+              src={'/src/Images/logo.png'}
+              alt="logo"
+            />
+            <p className="text-light-secondary_2 dark:text-dark-secondary_2 font-semibold capitalize">
+             add learning mode below
+            </p>
+          </div>
+                      <form
         onSubmit={handleSubmit}
-        className="rounded-xl w-[98%] sm:w-9/12 md:w-4/6 scroll max-h-full overflow-y-auto bg-light-secondary dark:bg-dark-secondary  px-2 md:px-10 py-4 md:py-10 shadow-lg backdrop-blur-md flex items-center justify-center flex-col"
+        className="text-start"
         action=""
       >
-        <p className="text-light-secondary_2 dark:text-dark-secondary_2 text-2xl font-semibold ">
-          Add Installment Plan
-        </p>
-        <div className="w-full flex my-2 rounded-3xl items-center border-none bg-light-primary dark:bg-dark-primary  px-2 py-3  placeholder:text-light-secondary_2 placeholder:dark:text-dark-secondary_2 text-light-secondary_2 dark:text-dark-secondary_2  placeholder:text-sm shadow-lg outline-none backdrop-blur-md text-[16px]">
-          <GiLaptop className="text-[16px]" />
+        
+        <div className="row">
+        <div className="mb-3 col-12">
+        <label className="form-label">Installment Plan Name</label>
           <input
-            className=" flex-1 bg-transparent h-full pl-2  placeholder:text-light-secondary_2 placeholder:dark:text-dark-secondary_2  placeholder:text-sm outline-none "
+            className=" form-control "
             type="text"
             name="name"
             required
             placeholder="Enter installment plan name eg Last"
           />
+           </div>
         </div>
-        <div className="w-full flex my-2 rounded-3xl items-center border-none bg-light-primary dark:bg-dark-primary  px-2 py-3  placeholder:text-light-secondary_2 placeholder:dark:text-dark-secondary_2 text-light-secondary_2 dark:text-dark-secondary_2  placeholder:text-sm shadow-lg outline-none backdrop-blur-md text-[16px]">
-          <GiLaptop className="text-[16px]" />
+        <div className="row">
+        <div className="mb-3 col-12">
+        <label className="form-label">Interest amount</label>
           <input
-            className=" flex-1 bg-transparent h-full pl-2  placeholder:text-light-secondary_2 placeholder:dark:text-dark-secondary_2  placeholder:text-sm outline-none "
+            className=" form-control "
             type="number"
             name="intrest"
             placeholder="Enter the Interest Amount (in Kshs) eg 1,000"
             required
           />
+           </div>
         </div>
-        <div className="w-full flex my-2 rounded-3xl items-center border-none bg-light-primary dark:bg-dark-primary  px-2 py-3  placeholder:text-light-secondary_2 placeholder:dark:text-dark-secondary_2 text-light-secondary_2 dark:text-dark-secondary_2  placeholder:text-sm shadow-lg outline-none backdrop-blur-md text-[16px]">
-          <GiLaptop className="text-[16px]" />
+        <div className="row">
+        <div className="mb-3 col-12">
+        <label className="form-label">Installments</label>
           <input
-            className=" flex-1 bg-transparent h-full pl-2  placeholder:text-light-secondary_2 placeholder:dark:text-dark-secondary_2  placeholder:text-sm outline-none "
+            className=" form-control "
             type="number"
             name="installements"
             placeholder="Enter the number of installments eg 4"
             required
           />
+           </div>
         </div>
         {loading ? (
           <div className="mt-8 flex justify-center text-lg">
             <button
               type="submit"
-              className="rounded-3xl bg-light-primary dark:bg-dark-primary text-[27px]  px-16 py-3 capitalize font-bold shadow-xl backdrop-blur-md text-light-secondary_2 dark:text-dark-secondary_2 transition-colors duration-300  hover:bg-light-secondary dark:bg-dark-secondary"
+              className="btn btn-primary w-md outline "
             >
               <CgSpinnerTwo className="spin" />
             </button>
@@ -114,14 +152,25 @@ function InstallmentPlan() {
           <div className="mt-8 flex justify-center text-lg">
             <button
               type="submit"
-              className="rounded-3xl bg-light-primary dark:bg-dark-primary  px-10 py-3 capitalize font-bold shadow-xl backdrop-blur-md text-light-secondary_2 dark:text-dark-secondary_2 transition-colors duration-300 hover:text-white hover:bg-light-secondary dark:bg-dark-secondary"
+              className="btn btn-primary w-md outline "
             >
               Add Plan
             </button>
           </div>
         )}
       </form>
+      
+      </div>
+      </div>
+      </div>
+      </div>
     </div>
+    </div>
+    </div>
+      </div>
+    </div>
+    </>
+    
   )
 }
 

@@ -57,7 +57,7 @@ function ResetPassword() {
     //   setPhonePage(false);
     //   setOtpPage(true);
     // }, 2000);
-    fetch(`${baseUrl}/send-otp/`, {
+    fetch(`https://mlight.nanesoft-lab.com/send-otp/`, {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
@@ -140,7 +140,7 @@ function ResetPassword() {
             otp: otpCode,
           };
           setLoading(false);
-          fetch(`${baseUrl}/reset-password/`, {
+          fetch(`https://mlight.nanesoft-lab.com/reset-password/`, {
             method: "POST",
             headers: {
               "Content-Type": "application/json",

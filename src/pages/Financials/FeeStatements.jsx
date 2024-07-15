@@ -152,7 +152,7 @@ function FeeStatements() {
   const cohortName = JSON.parse(localStorage.getItem("cohortName"));
 
   function fetchStatements() {
-    fetch(`${baseUrl}/transactions/?search=${student_id}`, {
+    fetch(`https://mlight.nanesoft-lab.com/transactions/?search=${student_id}`, {
       method: "GET",
       headers: {
         "Content-Type": "application/json",

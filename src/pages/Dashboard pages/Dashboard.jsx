@@ -35,7 +35,7 @@ function Dashboard() {
     setToken(token);
   }, []);
   function fetchStudentDueDate(token) {
-      fetch(`${baseUrl}/student-duedates/`, {
+      fetch(`https://mlight.nanesoft-lab.com/student-duedates/`, {
         method: "GET",
         headers: {
           "Content-Type": "application/json",
@@ -61,7 +61,7 @@ function Dashboard() {
     if (!userData) {
       navigate("../", { replace: true });
     } else {
-      fetch(`${baseUrl}/courses/${userData.course_id}/`, {
+      fetch(`https://mlight.nanesoft-lab.com/courses/${userData.course_id}/`, {
         method: "GET",
         headers: {
           "Content-Type": "application/json",

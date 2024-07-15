@@ -39,7 +39,7 @@ function StudentTransaction() {
     );
 
   const fetchFeeStatements = () => {
-    fetch(`${baseUrl}/transactions/?search=${student_id}`, {
+    fetch(`https://mlight.nanesoft-lab.com/transactions/?search=${student_id}`, {
       method: "GET",
       headers: {
         "Content-Type": "application/json",

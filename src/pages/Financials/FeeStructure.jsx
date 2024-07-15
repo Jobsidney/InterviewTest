@@ -155,7 +155,7 @@ function FeeStructure() {
   const cohortName = JSON.parse(localStorage.getItem("cohortName"));
 
   function fetchFeeStructure() {
-    fetch(`${baseUrl}/generate/fee-stracture/?student_id=${student_id}`, {
+    fetch(`https://mlight.nanesoft-lab.com/generate/fee-stracture/?student_id=${student_id}`, {
       method: "GET",
     })
       .then((res) => res.json())
