@@ -11,6 +11,7 @@ import Admin from './AdminPages/Admin'
 import ErrorPage from './Pages/ErrorPage'
 import ForgotPassword from './Pages/ForgotPassword'
 import Signup from './Pages/Signup'
+import Dashboard from './Pages/Dashboard pages/Dashboard'
 function App() {
   const navigate = useNavigate()
 
@@ -39,7 +40,7 @@ function App() {
     <Routes>
       <Route path='/' element={<Login />} />
       <Route path='/signup' element={<Signup />} />
-      {/* <Route path='/dashboard/*' element={<Dashboard />} />         */}
+      <Route path='/dashboard/*' element={<Dashboard />} />        
       <Route path='/admin/*' element={<Admin/>} />        
       <Route path='/forgot_password' element={<ForgotPassword/>} />        
       <Route path='*' element={<ErrorPage />} />

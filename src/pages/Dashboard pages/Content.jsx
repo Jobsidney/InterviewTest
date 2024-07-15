@@ -267,55 +267,97 @@ function Content({ userData, courseData, done2, dueDates }) {
   }, [mentors]);
 
   return (
-    <div className="w-full h-full overflow-y-auto flex flex-col">
-      <div className="w-full h-auto my-3 grid grid-cols-1 md:grid-cols-2 ">
-        <div className="w-[92%] md:w-[230px] lg:w-[80%] lg:mb-2 mb-3 mx-auto pt-3 shadow-lg h-max min-h-[150px] rounded-md bg-light-secondary_2 dark:bg-dark-secondary_2 flex flex-col items-center justify-evenly">
-          <TbProgressCheck className="text-[40px] w-[45px] p-2 h-[45px] rounded-[50%] bg-light-black_color dark:bg-dark-text_color text-light-secondary dark:text-dark-secondary" />
-          <p className="w-full py-2 px-1 text-center text-light-text_color dark:text-dark-text_color tracking-wider font-semibold">
-            Course Progress
-          </p>
-          <p className="w-full py-2 px-1 text-center text-light-text_color dark:text-dark-text_color tracking-wider font-bold">
-            10%
-          </p>
-        </div>
-        <div className="w-[92%] md:w-[230px] lg:w-[80%] mx-auto mb-3 pt-3 lg:mb-0 shadow-lg h-max min-h-[150px] rounded-md bg-light-secondary_2 dark:bg-dark-secondary_2 flex flex-col items-center justify-evenly">
-          <svg
-            className="w-[45px] p-2 h-[45px] rounded-[50%] bg-light-black_color dark:bg-dark-text_color"
-            width="20"
-            height="20"
-            viewBox="0 0 30 30"
-            fill="none"
-            xmlns="http://www.w3.org/2000/svg"
-          >
-            <path
-              d="M27 30H3C2.20459 29.9994 1.44199 29.7735 0.879557 29.3717C0.31712 28.97 0.000794215 28.4253 0 27.8571V2.14286C0.000794215 1.57471 0.31712 1.03 0.879557 0.628255C1.44199 0.226514 2.20459 0.000567296 3 0H27C27.7954 0.000567296 28.558 0.226514 29.1204 0.628255C29.6829 1.03 29.9992 1.57471 30 2.14286V19.9479L22.5 17.2693L15 19.9479V2.14286H3V27.8571H27V23.5714H30V27.8571C29.9988 28.4252 29.6824 28.9698 29.12 29.3714C28.5577 29.7731 27.7953 29.9991 27 30ZM22.5 14.8736L27 16.4807V2.14286H18V16.4807L22.5 14.8736Z"
-              fill="#8BDC77"
-            />
-          </svg>
-          <p className="w-full py-2 px-1 text-center text-light-text_color dark:text-dark-text_color tracking-wider font-semibold">
-            Registered Course
-          </p>
-          <p className="w-full py-2 px-1 text-center text-light-text_color dark:text-dark-text_color capitalize tracking-wider font-bold">
-            {courseData.name}
-          </p>
-        </div>
-        <div className="w-[92%] md:w-[230px] lg:w-[80%] lg:mb-2  mx-auto mb-3 pt-3 shadow-lg  h-max min-h-[150px] rounded-md bg-light-secondary_2 dark:bg-dark-secondary_2 flex flex-col items-center justify-evenly">
-          <FcBusinessman className="text-[40px] w-[45px] p-2 h-[45px] rounded-[50%] bg-light-black_color dark:bg-dark-text_color " />
-          <p className="w-full py-2 px-1 text-center text-light-text_color dark:text-dark-text_color tracking-wider font-semibold">
-            Technical Mentor
-          </p>
-          <p className="w-full py-2 px-1 text-center text-light-text_color dark:text-dark-text_color capitalize tracking-wider font-bold">
-            {myMentors.length > 0
+    <div className="main-content">
+    <div className="page-content">
+                        <div className="container-fluid">
+      <div className="row">
+      <a href="/janjaruka" className="col-md-3">
+        <div className="card mini-stats-wid">
+          <div className="card-body text-start">
+                                                    <div className="d-flex">
+                                                        <div className="flex-grow-1">
+                                                            <p className="text-muted fw-medium">Course Progress </p>
+                                                            <div className="d-flex flex-row">
+                                                                <h5 className="mb-0 "> 10% </h5>
+                                                                <small className="text-muted fw-medium text-sm mx-2">   </small>
+                                                            </div>
+                                                            
+                                                        </div>
+
+                                                        <div className="flex-shrink-0 align-self-center ">
+                                                            <div className="avatar-sm rounded-circle bg-primary mini-stat-icon">
+                                                                <span className="avatar-title rounded-circle bg-primary">
+                                                                    <i className="bx bx-archive-in font-size-24"></i>
+                                                                </span>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </a>
+                                        <a href="/janjaruka" className="col-md-3">
+                                            <div className="card mini-stats-wid">
+                                                <div className="card-body text-start">
+                                                    <div className="d-flex">
+                                                        <div className="flex-grow-1">
+                                                            <p className="text-muted fw-medium">Technical Mentor</p>
+                                                            <div className="d-flex flex-row">
+                                                                <h5 className="mb-0 ">  {myMentors.length > 0
               ? myMentors[myMentors.length - 1].first_name
               : myMentors.length === 0
               ? "0"
-              : "Loading..."}
-          </p>
-        </div>
-        <div className="w-[92%] md:w-[230px] lg:w-[80%] lg:mb-2 mx-auto mb-3 pt-3 shadow-lg  h-max min-h-[150px] rounded-md bg-light-secondary_2 dark:bg-dark-secondary_2 flex flex-col items-center justify-evenly">
+              : "Loading..."} </h5>
+                                                                <small className="text-muted fw-medium text-sm mx-2">  </small>
+                                                            </div>
+                                                            
+                                                        </div>
+
+                                                        <div className="flex-shrink-0 align-self-center ">
+                                                            <div className="avatar-sm rounded-circle bg-primary mini-stat-icon">
+                                                                <span className="avatar-title rounded-circle bg-primary">
+                                                                    <i className="bx bx-archive-in font-size-24"></i>
+                                                                </span>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </a>
+                                        <a href="/janjaruka" className="col-md-3">
+                                            <div className="card mini-stats-wid">
+                                                <div className="card-body text-start">
+                                                    <div className="d-flex">
+                                                        <div className="flex-grow-1">
+                                                            <p className="text-muted fw-medium">Registered Course</p>
+                                                            <div className="d-flex flex-row">
+                                                                <h5 className="mb-0 ">   {courseData.name} </h5>
+                                                                <small className="text-muted fw-medium text-sm mx-2">  </small>
+                                                            </div>
+                                                            
+                                                        </div>
+
+                                                        <div className="flex-shrink-0 align-self-center ">
+                                                            <div className="avatar-sm rounded-circle bg-primary mini-stat-icon">
+                                                                <span className="avatar-title rounded-circle bg-primary">
+                                                                    <i className="bx bx-archive-in font-size-24"></i>
+                                                                </span>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </a>
+
+        <div className="col-xl-4">
+      <div className="card">
+        <div className="card-body">
+        <h4 className="card-title mb-4">Student Finance Info</h4>
+        <div className="flex-row d-flex justify-content-between border-bottom">
           <p className="w-full px-2 flex justify-between border-b border-b-light-text_color dark:border-b-dark-text_color text-light-text_color dark:text-dark-text_color capitalize tracking-wide">
             Total Billed:{" "}
-            <span>
+            
+          </p>
+          <p><span>
               {loading
                 ? "loading..."
                 : feeDetails.length > 0
@@ -323,12 +365,15 @@ function Content({ userData, courseData, done2, dueDates }) {
                 : totalBill
                 ? `Kshs. ${totalBill}`
                 : "loading..."}
-            </span>
-          </p>
+            </span></p>
+          </div>
+          <div className="flex-row d-flex justify-content-between border-bottom">
           <p className="w-full px-2 flex justify-between border-b border-b-light-text_color dark:border-b-dark-text_color text-light-text_color dark:text-dark-text_color capitalize tracking-wide">
             Total Paid:{" "}
-            <span>
-              {loading
+            
+          </p>
+          <p><span>
+          {loading
                 ? "loading..."
                 : feeDetails.length > 0
                 ? `Kshs. ${
@@ -336,21 +381,24 @@ function Content({ userData, courseData, done2, dueDates }) {
                     feeDetails[feeDetails.length - 1].balance
                   }`
                 : "Kshs. 0"}
-            </span>
-          </p>
+            </span></p>
+          </div>
+          <div className="flex-row d-flex justify-content-between border-bottom">
           <p className="w-full px-2 flex justify-between border-b border-b-light-text_color dark:border-b-dark-text_color text-light-text_color dark:text-dark-text_color capitalize tracking-wide">
-            Balance Due:{" "}
-            <span>
-              {loading
+            Due Balance:{" "}
+            
+          </p>
+          <p><span>
+          {loading
                 ? "loading..."
                 : feeDetails.length > 0
                 ? `Kshs. ${feeDetails[feeDetails.length - 1].balance}`
                 : totalBill
                 ? `Kshs. ${totalBill}`
                 : "loading..."}
-            </span>
-          </p>
-          <div className="w-full px-2 flex flex-col border-b-light-text_color dark:border-b-dark-text_color text-light-text_color dark:text-dark-text_color">
+            </span></p>
+          </div>
+          <small className="text-start">
             {done2 && d > 0 ? (
               <>
                 {done2 > 0 && d ? (
@@ -391,11 +439,13 @@ function Content({ userData, courseData, done2, dueDates }) {
                       );
 
                       return (
-                        <span key={index} className="w-full text-[14px]">
+                        <span key={index} className="text-start">
                           Pay Installment {dueDate.installment} of Kshs.{" "}
                           {installmentData.dueB} Due on{" "}
                           {new Date(installmentData.dueD).toDateString()}
+                          <br/>
                         </span>
+                       
                       );
                     })}
                   </>
@@ -406,129 +456,152 @@ function Content({ userData, courseData, done2, dueDates }) {
             ) : (
               "loading..."
             )}
-          </div>
+          </small>
         </div>
-      </div>
-      <div className="w-full h-auto flex px-4 pb-4 md:p-2 gap-2 flex-col mt-3 py-2 md:pb-2  items-center md:items-start md:flex-row  justify-evenly flex-wrap">
-        <div className="flex flex-col shadow-lg w-full md:w-[75%] lg:w-[60%] overflow-hidden rounded-lg mb-4 lg:mb-0">
-          <p className="w-full py-2 px-3 bg-light-secondary dark:bg-dark-secondary">
-            Student Information
-          </p>
-          <div className="w-full min-h-max bg-light-secondary_2 dark:bg-dark-secondary_2 ">
-            <img
-              className="w-[70px] ml-6 h-[70px] mt-2 object-cover shadow-xl rounded-[50%]"
-              src={userData.profile_pic ? userData.profile_pic : profilePic}
-              alt=""
-            />
-            <div className="w-full">
-              <p className="w-full flex justify-between py-2 px-2 md:px-8 text-light-text_color dark:text-dark-text_color font-semibold border-b border-b-secondary">
-                Registration Number{" "}
-                <span className="uppercase font-medium">
-                  {userData.registration_number
-                    ? userData.registration_number
-                    : "--"}
-                </span>
-              </p>
-            </div>
-            <div className="w-full ">
-              <p className="w-full flex justify-between py-2 px-2 md:px-8 text-light-text_color dark:text-dark-text_color font-semibold border-b border-b-secondary">
-                Cohort{" "}
-                <span className="uppercase font-medium">
-                  {done ? cohortName : <CgSpinnerTwo className="spin" />}
-                </span>
-              </p>
-            </div>
-            <div className="w-full ">
-              <p className="w-full flex justify-between py-2 px-2 md:px-8 text-light-text_color dark:text-dark-text_color font-semibold border-b border-b-secondary">
-                Name{" "}
-                <span className="capitalize font-medium">
-                  {userData.first_name && userData.first_name}{" "}
-                  {userData.last_name && userData.last_name}
-                </span>
-              </p>
-            </div>
-            <div className="w-full ">
-              <p className="w-full flex justify-between py-2 px-2 md:px-8 text-light-text_color dark:text-dark-text_color font-semibold border-b border-b-secondary">
-                ID/Passport Number{" "}
-                <span className="capitalize font-medium">
-                  {userData.id_number ? userData.id_number : "--"}
-                </span>
-              </p>
-            </div>
-            <div className="w-full ">
-              <p className="w-full flex justify-between py-2 px-2 md:px-8 text-light-text_color dark:text-dark-text_color font-semibold border-b border-b-secondary">
-                Gender{" "}
-                <span className="capitalize font-medium">
-                  {userData.gender ? userData.gender : "--"}
-                </span>
-              </p>
-            </div>
-            <div className="w-full ">
-              <p className="w-full flex justify-between py-2 px-2 md:px-8 text-light-text_color dark:text-dark-text_color font-semibold border-b border-b-secondary">
-                Username
-                <span className="font-medium">
-                  {userData.username ? userData.username : "--"}
-                </span>
-              </p>
-            </div>
-          </div>
         </div>
-        <div className="flex flex-col shadow-lg w-full  md:w-[75%] lg:w-[35%] lg:h-full mb-8 md:mb-2 overflow-hidden rounded-lg ">
-          <p className="w-full py-2 px-3 bg-light-secondary dark:bg-dark-secondary">
-            Student Contact Information
-          </p>
-          <div className="w-full pb-4 lg:pb-0  bg-light-secondary_2 dark:bg-dark-secondary_2 flex-1">
-            <div className="w-full ">
-              <p className="w-11/12 flex justify-between mx-auto mt-4 rounded-md py-2 px-2 text-light-black_color dark:text-light-black_color font-semibold bg-light-bg_white shadow-lg dark:bg-dark-text_color ">
+
+
+        <div className="card">
+        <div className="card-body">
+        <h4 className="card-title mb-4">Student Information</h4>
+        <div className="">
+        
+              <p className="form-control">
                 Phone Number
                 <span className="uppercase  font-medium">
                   {userData.phone ? userData.phone : "--"}
                 </span>
               </p>
-            </div>
-            <div className="w-full ">
-              <p className="w-11/12 flex justify-between mx-auto mt-4 rounded-md py-2 px-2 text-light-black_color dark:text-light-black_color font-semibold bg-light-bg_white shadow-lg dark:bg-dark-text_color ">
+            
+            
+              <p className="form-control">
                 Email
                 <span className="font-medium">
                   {userData.email ? userData.email : "--"}
                 </span>
               </p>
-            </div>
-            <div className="w-full ">
-              <p className="w-11/12 flex justify-between mx-auto mt-4 rounded-md py-2 px-2 text-light-black_color dark:text-light-black_color font-semibold bg-light-bg_white shadow-lg dark:bg-dark-text_color ">
+            
+            
+              <p className="form-control">
                 County
                 <span className="capitalize font-medium">
                   {userData.county ? userData.county : "--"}
                 </span>
               </p>
-            </div>
-            <div className="w-full ">
-              <p className="w-11/12 flex justify-between mx-auto mt-4 rounded-md py-2 px-2 text-light-black_color dark:text-light-black_color font-semibold bg-light-bg_white shadow-lg dark:bg-dark-text_color ">
+            
+            
+              <p className="form-control">
+                County
+                <span className="capitalize font-medium">
+                  {userData.county ? userData.county : "--"}
+                </span>
+              </p>
+            
+            
+              <p className="form-control">
                 Town
                 <span className="capitalize font-medium">
                   {userData.town ? userData.town : "--"}
                 </span>
               </p>
-            </div>
-            <div className="w-full ">
-              <p className="w-11/12 flex justify-between mx-auto mt-4 rounded-md py-2 px-2 text-light-black_color dark:text-light-black_color font-semibold bg-light-bg_white shadow-lg dark:bg-dark-text_color ">
+            
+            
+              <p className="form-control">
                 Postal Address
                 <span className="capitalize font-medium">
                   {userData.address ? userData.address : "--"}
                 </span>
               </p>
-            </div>
-          </div>
+            
+        </div>
+        </div>
         </div>
       </div>
-      <div className="w-auto h-auto py-2 px-6 my-3 ">
+<div className="col-xl-8">
+      <div className="card">
+        <div className="card-body">
+        <h4 className="card-title mb-4">Student Information</h4>
+        <img
+              className="w-[70px] ml-6 h-[70px] mt-2 object-cover shadow-xl rounded-[50%]"
+              src={userData.profile_pic ? userData.profile_pic : profilePic}
+              alt=""
+            />
+          <div className="flex-row d-flex justify-content-between border-bottom">
+          <p className="w-full px-2 flex justify-between border-b border-b-light-text_color dark:border-b-dark-text_color text-light-text_color dark:text-dark-text_color capitalize tracking-wide">
+            Registration Number:{" "}
+            
+          </p>
+          <p><span>
+          {userData.registration_number
+                    ? userData.registration_number
+                    : "--"}
+            </span></p>
+          </div>
+          <div className="flex-row d-flex justify-content-between border-bottom">
+          <p className="w-full px-2 flex justify-between border-b border-b-light-text_color dark:border-b-dark-text_color text-light-text_color dark:text-dark-text_color capitalize tracking-wide">
+            Cohort:{" "}
+            
+          </p>
+          <p><span>
+          {done ? cohortName : <CgSpinnerTwo className="spin" />}
+            </span></p>
+          </div>
+          <div className="flex-row d-flex justify-content-between border-bottom">
+          <p className="w-full px-2 flex justify-between border-b border-b-light-text_color dark:border-b-dark-text_color text-light-text_color dark:text-dark-text_color capitalize tracking-wide">
+            Name:{" "}
+            
+          </p>
+          <p><span>
+          {userData.first_name && userData.first_name}{" "}
+          {userData.last_name && userData.last_name}
+            </span></p>
+          </div>
+          <div className="flex-row d-flex justify-content-between border-bottom">
+          <p className="w-full px-2 flex justify-between border-b border-b-light-text_color dark:border-b-dark-text_color text-light-text_color dark:text-dark-text_color capitalize tracking-wide">
+            ID Number:{" "}
+            
+          </p>
+          <p><span>
+          {userData.id_number ? userData.id_number : "--"}
+            </span></p>
+          </div>
+          <div className="flex-row d-flex justify-content-between border-bottom">
+          <p className="w-full px-2 flex justify-between border-b border-b-light-text_color dark:border-b-dark-text_color text-light-text_color dark:text-dark-text_color capitalize tracking-wide">
+            Gender:{" "}
+            
+          </p>
+          <p><span>
+          {userData.gender ? userData.gender : "--"}
+            </span></p>
+          </div>
+          <div className="flex-row d-flex justify-content-between border-bottom">
+          <p className="w-full px-2 flex justify-between border-b border-b-light-text_color dark:border-b-dark-text_color text-light-text_color dark:text-dark-text_color capitalize tracking-wide">
+            UserName:{" "}
+            
+          </p>
+          <p><span>
+          {userData.username ? userData.username : "--"}
+            </span></p>
+          </div>
+       
+          
+        </div>
+        </div>
+      </div>
+
+
+      </div>
+      
+      <div className=" py-2 px-6 my-3 ">
         <button
           onClick={handleUpdate}
-          className="bg-light-secondary dark:bg-dark-secondary_3 py-2 px-4 text-light-text_color dark:text-dark-text_color font-semibold transition-all duration-500 hover:bg-light-secondary_2 hover:dark:bg-dark-secondary_2 dark:bg-dark-secondary_2 rounded-md"
+          className="btn btn-primary w-md outline"
         >
           Update Information
         </button>
       </div>
+    </div>
+    </div>
     </div>
   );
 }

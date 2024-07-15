@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import Sidebar from "./Sidebar";
+
 import Content from "./Content";
 import Header from "./Header";
 import { Routes, Route, useNavigate } from "react-router-dom";
@@ -19,6 +19,7 @@ import ShowStatement from "../Financials/ShowStatement";
 import GenerateFeeStructure from "../Financials/GenerateFeeStructure";
 import UpdateStudentDetails from "../UpdateStudentDetails";
 import MyMentors from "../MyMentors/MyMentors";
+import SidebarNav from "./SidebarNav";
 
 function Dashboard() {
   const navigate = useNavigate("");
@@ -94,23 +95,13 @@ function Dashboard() {
     }, [userData, token]);
 
   return userData && courseData ? (
-    <div className="w-full h-screen flex relative">
-      <div
-        className={`absolute left-0 ${
-          showSidebar ? "show" : "hide"
-        } md:translate-x-0 md:flex z-20 md:static min-w-[250px] h-full transition-all bg-light-sidebar_color dark:bg-dark-sidebar_color`}
-      >
-        <Sidebar
+    <>
+        <SidebarNav
           setShowSidebar={setShowSidebar}
           userData={userData}
           courseData={courseData}
         />
-      </div>
-      <div className="flex-1 bg-light-primary dark:bg-dark-primary flex flex-col">
-        <div className="w-full h-[50px] bg-light-secondary dark:bg-dark-secondary shadow-md flex items-center justify-between px-4">
-          <Header handleSidebar={handleSidebar} />
-        </div>
-        <div className="w-full flex-1 flex flex-col overflow-y-auto items-center justify-evenly">
+        
           <Routes>
             <Route
               path="/"
@@ -141,9 +132,9 @@ function Dashboard() {
             <Route path="/fee_payment" element={<FeePayment />} />
             <Route path="*" element={<ErrorPage />} />
           </Routes>
-        </div>
-      </div>
-    </div>
+      
+    
+    </>
   ) : null;
 }
 
