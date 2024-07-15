@@ -33,19 +33,19 @@ function LeftSideNav({  userData }) {
                         <div className="navbar-brand-box">
                             <a href="index.html" className="logo logo-dark">
                                 <span className="logo-sm">
-                                    <img src="/assets/images/logo.svg" alt="" height="80%"/>
+                                    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQjZ0mzMNrvCYOAOts7eKAIQNC10xCqzYUtGQ&s" alt="" height="80%"/>
                                 </span>
                                 <span className="logo-lg">
-                                    <img src="/assets/images/logo-dark.png" alt="" height="80%"/>
+                                    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQjZ0mzMNrvCYOAOts7eKAIQNC10xCqzYUtGQ&s" alt="" height="80%"/>
                                 </span>
                             </a>
 
                             <a href="index.html" className="logo logo-light">
                                 <span className="logo-sm">
-                                    <img src="/assets/images/logo-light.svg" alt="" height="80%"/>
+                                    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQjZ0mzMNrvCYOAOts7eKAIQNC10xCqzYUtGQ&s" alt="" height="80%"/>
                                 </span>
                                 <span className="logo-lg">
-                                    <img src="/assets/images/logo-light.png" alt="" height="80%"/>
+                                    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQjZ0mzMNrvCYOAOts7eKAIQNC10xCqzYUtGQ&s" alt="" height="80%"/>
                                 </span>
                             </a>
                         </div>
@@ -159,47 +159,36 @@ function LeftSideNav({  userData }) {
                                     <span key="t-utility">Students</span>
                                 </a>
                     </MenuItem>
+                    <MenuItem component={<Link to="/admin/mentors" />}> 
+                    <a href="" className="text-primary fw-bold">
+                                    <i className="bx bx-file"></i>
+                                    <span key="t-utility">Mentors</span>
+                                </a>
+                    </MenuItem>
+                    <MenuItem component={<Link to="/admin/add_user" />}> 
+                    <a href="" className="text-primary fw-bold">
+                                    <i className="bx bx-file"></i>
+                                    <span key="t-utility">Add user</span>
+                                </a>
+                    </MenuItem>
                     <SubMenu  label={<a href="" className="text-primary fw-bold">
                                     <i className="bx bx-file"></i>
-                                    <span key="t-utility">Scholarships</span>
+                                    <span key="t-utility">Courses</span>
                                 </a>}>
-                    <MenuItem  component={<Link to="/studentsTableF1" />} > Form 1 </MenuItem>
-                    <MenuItem component={<Link to="/studentsTableF2" />} > Form 2 </MenuItem>
-                    <MenuItem component={<Link to="/studentsTableF3" />} > Form 3 </MenuItem>
-                    <MenuItem component={<Link to="/studentsTableF4" />} > Form 4 </MenuItem>
-                    <div className="menu-title" key="t-pages">University</div>
-                    <MenuItem component={<Link to="/studentsTableY1" />} > Year One</MenuItem>
-                    <MenuItem component={<Link to="/studentsTableY2" />} > Year Two</MenuItem>
-                    <MenuItem component={<Link to="/studentsTableY3" />} > Year Three</MenuItem>
-                    <MenuItem component={<Link to="/studentsTableY4" />} > Year Four</MenuItem>
-                    <div className="menu-title" key="t-pages">Alumni</div>
-                    <MenuItem component={<Link to="/Alumni" />} > Alumni</MenuItem>
-                    <div className="menu-title" key="t-pages">Others</div>
-                    <MenuItem component={<Link to="/studentsExpelled" />} > Expelled Students </MenuItem>
-                    <MenuItem component={<Link to="/scholars" />} > All Students</MenuItem>
-                    </SubMenu>
-                    <SubMenu label={<a href="" className="">
-                                    <i className="bx bx-file"></i>
-                                    <span key="t-utility">Inuka</span>
-                                </a>}>
-                    <MenuItem> Form 1 </MenuItem>
-                    <MenuItem> Form 2 </MenuItem>
-                    </SubMenu>
-                    <SubMenu label={<a href="" className="">
-                                    <i className="bx bx-file"></i>
-                                    <span key="t-utility">Tuungane</span>
-                                </a>}>
-                    <MenuItem> Form 1 </MenuItem>
-                    <MenuItem> Form 2 </MenuItem>
+                    <MenuItem  component={<Link to="/admin/add_course" />} > Add Course </MenuItem>
+                    <MenuItem component={<Link to="/admin/learning_mode" />} > Add Learning Mode </MenuItem>
+                    <MenuItem component={<Link to="/admin/installment_plan" />} > Add Installment Plan </MenuItem>
+                    <MenuItem component={<Link to="/admin/add_corhot" />} > Add Cohort </MenuItem>
+                   
+                    
                     </SubMenu>
 
-                    <SubMenu label={<a href="" className="waves-effect">
+                    <MenuItem component={<Link to="/admin/mentors" />}> 
+                    <a href="" className="text-primary fw-bold">
                                     <i className="bx bx-file"></i>
-                                    <span key="t-utility">Janjaruka</span>
-                                </a>}>
-                    <MenuItem> Form 1 </MenuItem>
-                    <MenuItem> Form 2 </MenuItem>
-                    </SubMenu>
+                                    <span key="t-utility">All Transactions</span>
+                                </a>
+                    </MenuItem>
                     
                     <div className="menu-title" key="t-apps">Apps</div>
                     <MenuItem> <a href="" className=" waves-effect">

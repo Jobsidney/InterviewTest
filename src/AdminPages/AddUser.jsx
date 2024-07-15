@@ -15,6 +15,7 @@ import baseUrl from "../BaseUrl";
 import { useNavigate } from "react-router-dom";
 import { AiFillEyeInvisible } from "react-icons/ai";
 import { AiFillEye } from "react-icons/ai";
+import { Toaster } from "react-hot-toast";
 
 function AddUser() {
   const navigate = useNavigate("");
@@ -30,7 +31,7 @@ function AddUser() {
   const [show2, setShow2] = useState(false);
 
   const fetchCourses = () => {
-    fetch(`${baseUrl}/courses/`, {
+    fetch(`https://mlight.nanesoft-lab.com/courses/`, {
       method: "GET",
       headers: {
         "Content-Type": "application/json",
@@ -59,7 +60,7 @@ function AddUser() {
   };
 
   const fetchCohort = () => {
-    fetch(`${baseUrl}/cohort/`, {
+    fetch(`https://mlight.nanesoft-lab.com/cohort/`, {
       method: "GET",
     })
       .then((res) => {
@@ -86,7 +87,7 @@ function AddUser() {
       });
   };
   const fetchLearningMode = () => {
-    fetch(`${baseUrl}/learning-mode/`, {
+    fetch(`https://mlight.nanesoft-lab.com/learning-mode/`, {
       method: "GET",
     })
       .then((res) => {
@@ -113,7 +114,7 @@ function AddUser() {
   };
 
   const fetchInstallmentPlan = () => {
-    fetch(`${baseUrl}/installement-plans/`, {
+    fetch(`https://mlight.nanesoft-lab.com/installement-plans/`, {
       method: "GET",
     })
       .then((res) => {
@@ -156,7 +157,7 @@ function AddUser() {
       formDataObject[key] = value;
     });
     JSON.stringify(formDataObject);
-    fetch(`${baseUrl}/users/`, {
+    fetch(`https://mlight.nanesoft-lab.com/users/`, {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
@@ -211,31 +212,47 @@ function AddUser() {
   };
 
   return (
-    <div className="flex h-screen w-full items-center overflow-hidden justify-center bg-light-primary dark:bg-dark-primary bg-cover bg-no-repeat">
-      <div className="rounded-xl w-11/12 md:w-4/6 scroll max-h-full overflow-y-auto bg-light-secondary dark:bg-dark-secondary  px-2 md:px-10 py-4 md:py-10 shadow-lg backdrop-blur-md ">
-        {!loadingCohort && !loadingPlan && !loadingMode ? (
-          <div className="text-light-secondary_2 dark:text-dark-secondary_2">
+    <>
+    <Toaster />
+    <div className="main-content">
+    <div className="page-content">
+    <div className="container-fluid">
+    <div className="row">
+            <div className="col-12">
+                <div className="page-title-box d-sm-flex align-items-center justify-content-between">
+                    <h4 className="mb-sm-0 font-size-18">User Registration</h4>
+
+                
+
+                </div>
+            </div>
+        </div>
+    <div className="row">
+      <div className="col-xl-12">{!loadingCohort && !loadingPlan && !loadingMode ? (
+        <div className="card">
+                      <div className="card-body">
+                      <div className="row col-xl-8 mx-auto">
+                      <div className='mb-5'>
+          <div className="row col-xl-8 mx-auto">
             <div className="mb-8 flex flex-col items-center">
-              <h1 className="mb-2 text-2xl text-light-secondary_2 dark:text-dark-secondary_2 uppercase font-semibold">
-                User Registration
-              </h1>
+            
               <img
-                className="w-[120px] h-[120px] object-cover"
+                className=" object-cover" width={"80px"}
                 src={logo}
                 alt="logo"
               />
-              <span className="text-light-secondary_2 dark:text-dark-secondary_2 font-semibold capitalize">
+              <p className="text-light-secondary_2 dark:text-dark-secondary_2 font-semibold capitalize">
                 User(Student/Mentor) Details
-              </span>
+              </p>
             </div>
             {installmentPlan.length > 0 && cohort.length > 0 ? (
-              <form className="w-full" onSubmit={handleSubmit}>
-                <div className="mb-4 w-full flex">
-                  <div className="w-full flex rounded-3xl border-none  items-center bg-light-primary dark:bg-dark-primary overflow-hidden  px-2 placeholder:text-light-secondary_2 placeholder:dark:text-dark-secondary_2 text-light-secondary_2 dark:text-dark-secondary_2  placeholder:text-sm shadow-lg outline-none backdrop-blur-md text-[16px]">
+              <form className="col-12 text-start" onSubmit={handleSubmit}>
+                <div className="row">
+                  <div className="mb-3 col-12">
                     <BiSolidGraduation className="text-[18px]" />
                     <select
                       required
-                      className="flex-1 bg-light-primary h-full text-sm  py-3 pl-2  outline-none"
+                      className="form-control form-select"
                       name="role"
                     >
                       <option value="" selected disabled>
@@ -246,84 +263,84 @@ function AddUser() {
                     </select>
                   </div>
                 </div>
-                <div className="mb-4 w-full flex">
-                  <div className="w-full flex rounded-3xl items-center border-none bg-light-primary dark:bg-dark-primary  px-2 py-3  placeholder:text-light-secondary_2 placeholder:dark:text-dark-secondary_2 text-light-secondary_2 dark:text-dark-secondary_2  placeholder:text-sm shadow-lg outline-none backdrop-blur-md text-[16px]">
+                <div className="row">
+                  <div className="mb-3 col-12">
                     <BiSolidUser className="text-[18px]" />
                     <input
                       required
-                      className=" flex-1 bg-transparent h-full pl-2  placeholder:text-light-secondary_2 placeholder:dark:text-dark-secondary_2  placeholder:text-sm outline-none"
+                      className=" form-control"
                       type="text"
                       name="first_name"
                       placeholder="First Name"
                     />
                   </div>
                 </div>
-                <div className="mb-4 w-full flex">
-                  <div className="w-full flex rounded-3xl items-center border-none bg-light-primary dark:bg-dark-primary  px-2 py-3  placeholder:text-light-secondary_2 placeholder:dark:text-dark-secondary_2 text-light-secondary_2 dark:text-dark-secondary_2  placeholder:text-sm shadow-lg outline-none backdrop-blur-md text-[16px]">
+                <div className="row">
+                  <div className="mb-3 col-12">
                     <BiSolidUser className="text-[18px]" />
                     <input
                       required
-                      className=" flex-1 bg-transparent h-full pl-2  placeholder:text-light-secondary_2 placeholder:dark:text-dark-secondary_2  placeholder:text-sm outline-none "
+                      className=" form-control "
                       type="last_name"
                       name="last_name"
                       placeholder="Last Name"
                     />
                   </div>
                 </div>
-                <div className="mb-4 w-full flex">
-                  <div className="w-full flex rounded-3xl items-center border-none bg-light-primary dark:bg-dark-primary  px-2 py-3  placeholder:text-light-secondary_2 placeholder:dark:text-dark-secondary_2 text-light-secondary_2 dark:text-dark-secondary_2  placeholder:text-sm shadow-lg outline-none backdrop-blur-md text-[16px]">
+                <div className="row">
+                  <div className="mb-3 col-12">
                     <BiSolidUser className="text-[18px]" />
                     <input
                       required
-                      className=" flex-1 bg-transparent h-full pl-2  placeholder:text-light-secondary_2 placeholder:dark:text-dark-secondary_2  placeholder:text-sm outline-none "
+                      className=" form-control "
                       type="text"
                       name="username"
                       placeholder="Username"
                     />
                   </div>
                 </div>
-                <div className="mb-4 w-full flex">
-                  <div className="w-full flex rounded-3xl items-center border-none bg-light-primary dark:bg-dark-primary  px-2 py-3  placeholder:text-light-secondary_2 placeholder:dark:text-dark-secondary_2 text-light-secondary_2 dark:text-dark-secondary_2  placeholder:text-sm shadow-lg outline-none backdrop-blur-md text-[16px]">
+                <div className="row">
+                  <div className="mb-3 col-12">
                     <FaBirthdayCake className="text-[16px]" />
                     <input
                       required
-                      className=" flex-1 bg-transparent h-full pl-2  placeholder:text-light-secondary_2 placeholder:dark:text-dark-secondary_2  placeholder:text-sm outline-none "
+                      className=" form-control "
                       type="id_number"
                       name="id_number"
                       placeholder="National ID"
                     />
                   </div>
                 </div>
-                <div className="mb-4 w-full flex">
-                  <div className="w-full flex rounded-3xl items-center border-none bg-light-primary dark:bg-dark-primary  px-2 py-3  placeholder:text-light-secondary_2 placeholder:dark:text-dark-secondary_2 text-light-secondary_2 dark:text-dark-secondary_2  placeholder:text-sm shadow-lg outline-none backdrop-blur-md text-[16px]">
+                <div className="row">
+                  <div className="mb-3 col-12">
                     <MdEmail className="text-[16px]" />
                     <input
                       required
-                      className=" flex-1 bg-transparent h-full pl-2  placeholder:text-light-secondary_2 placeholder:dark:text-dark-secondary_2  placeholder:text-sm outline-none "
+                      className=" form-control "
                       type="text"
                       name="email"
                       placeholder="Enter your Email Address"
                     />
                   </div>
                 </div>
-                <div className="mb-4 w-full flex">
-                  <div className="w-full flex rounded-3xl items-center border-none bg-light-primary dark:bg-dark-primary  px-2 py-3  placeholder:text-light-secondary_2 placeholder:dark:text-dark-secondary_2 text-light-secondary_2 dark:text-dark-secondary_2  placeholder:text-sm shadow-lg outline-none backdrop-blur-md text-[16px]">
+                <div className="row">
+                  <div className="mb-3 col-12">
                     <BiSolidPhone className="text-[18px]" />
                     <input
                       required
-                      className=" flex-1 bg-transparent h-full pl-2  placeholder:text-light-secondary_2 placeholder:dark:text-dark-secondary_2  placeholder:text-sm outline-none "
+                      className=" form-control "
                       type="tel"
                       name="phone"
                       placeholder="Enter your phone Number"
                     />
                   </div>
                 </div>
-                <div className="mb-4 w-full flex">
-                  <div className="w-full flex rounded-3xl border-none overflow-hidden items-center bg-light-primary dark:bg-dark-primary  px-2 placeholder:text-light-secondary_2 placeholder:dark:text-dark-secondary_2 text-light-secondary_2 dark:text-dark-secondary_2  placeholder:text-sm shadow-lg outline-none backdrop-blur-md text-[16px]">
-                    <FaUser className="text-[16px]" />
+                <div className="row">
+                  <div className="mb-3 col-12">
+                    <FaUser className="" />
                     <select
                       required
-                      className="flex-1 bg-light-primary h-full text-sm  py-3 pl-2  outline-none"
+                      className="form-control form-select"
                       name="gender"
                     >
                       <option value="" selected disabled>
@@ -336,12 +353,12 @@ function AddUser() {
                   </div>
                 </div>
 
-                <div className="mb-4 w-full flex">
-                  <div className="w-full flex rounded-3xl items-center overflow-hidden border-none bg-light-primary dark:bg-dark-primary  px-2  placeholder:text-light-secondary_2 placeholder:dark:text-dark-secondary_2 text-light-secondary_2 dark:text-dark-secondary_2  placeholder:text-sm shadow-lg outline-none backdrop-blur-md text-[16px]">
+                <div className="row ">
+                  <div className="mb-3 col-12">
                     <BsBookHalf className="text-[16px]" />
                     <select
                       required
-                      className="flex-1 bg-light-primary h-full text-sm  py-3 pl-2  outline-none"
+                      className="form-control form-select"
                       name="course_id"
                     >
                       <option selected disabled>
@@ -357,12 +374,12 @@ function AddUser() {
                     </select>
                   </div>
                 </div>
-                <div className="mb-4 w-full flex">
-                  <div className="w-full flex rounded-3xl items-center overflow-hidden border-none bg-light-primary dark:bg-dark-primary  px-2  placeholder:text-light-secondary_2 placeholder:dark:text-dark-secondary_2 text-light-secondary_2 dark:text-dark-secondary_2  placeholder:text-sm shadow-lg outline-none backdrop-blur-md text-[16px]">
+                <div className="row">
+                  <div className="mb-3 col-12">
                     <BiSolidUser className="text-[16px]" />
                     <select
                       required
-                      className="flex-1 bg-light-primary h-full text-sm  py-3 pl-2  outline-none"
+                      className="form-control form-select"
                       name="cohort_id"
                     >
                       <option selected disabled>
@@ -379,12 +396,12 @@ function AddUser() {
                     </select>
                   </div>
                 </div>
-                <div className="mb-4 w-full flex">
-                  <div className="w-full flex rounded-3xl items-center overflow-hidden border-none bg-light-primary dark:bg-dark-primary  px-2  placeholder:text-light-secondary_2 placeholder:dark:text-dark-secondary_2 text-light-secondary_2 dark:text-dark-secondary_2  placeholder:text-sm shadow-lg outline-none backdrop-blur-md text-[16px]">
+                <div className="row">
+                  <div className="mb-3 col-12">
                     <BsBookHalf className="text-[16px]" />
                     <select
                       required
-                      className="flex-1 bg-light-primary h-full text-sm  py-3 pl-2  outline-none"
+                      className="form-control form-select"
                       name="installement_id"
                     >
                       <option selected disabled>
@@ -403,12 +420,12 @@ function AddUser() {
                     </select>
                   </div>
                 </div>
-                <div className="mb-4 w-full flex">
-                  <div className="w-full flex rounded-3xl items-center overflow-hidden border-none bg-light-primary dark:bg-dark-primary  px-2  placeholder:text-light-secondary_2 placeholder:dark:text-dark-secondary_2 text-light-secondary_2 dark:text-dark-secondary_2  placeholder:text-sm shadow-lg outline-none backdrop-blur-md text-[16px]">
+                <div className="row">
+                  <div className="mb-3 col-12">
                     <BsBookHalf className="text-[16px]" />
                     <select
                       required
-                      className="flex-1 bg-light-primary h-full text-sm  py-3 pl-2  outline-none"
+                      className="form-control form-select"
                       name="mode_id"
                     >
                       <option selected disabled>
@@ -426,12 +443,12 @@ function AddUser() {
                     </select>
                   </div>
                 </div>
-                <div className="mb-4 w-full flex">
-                  <div className="w-full flex rounded-3xl items-center border-none bg-light-primary dark:bg-dark-primary  px-2 py-3  placeholder:text-light-secondary_2 placeholder:dark:text-dark-secondary_2 text-light-secondary_2 dark:text-dark-secondary_2  placeholder:text-sm shadow-lg outline-none backdrop-blur-md text-[16px]">
+                <div className="row">
+                  <div className="mb-3 col-12">
                     <TiLockClosed className="text-[18px]" />
                     <input
                       required
-                      className=" flex-1 bg-transparent h-full pl-2  placeholder:text-light-secondary_2 placeholder:dark:text-dark-secondary_2  placeholder:text-sm outline-none "
+                      className=" form-control "
                       type={`${show ? "text" : "password"}`}
                       name="password"
                       placeholder="Assign Temporary Password"
@@ -449,12 +466,12 @@ function AddUser() {
                     )}
                   </div>
                 </div>
-                <div className="mb-4 w-full flex">
-                  <div className="w-full flex rounded-3xl items-center border-none bg-light-primary dark:bg-dark-primary  px-2 py-3  placeholder:text-light-secondary_2 placeholder:dark:text-dark-secondary_2 text-light-secondary_2 dark:text-dark-secondary_2  placeholder:text-sm shadow-lg outline-none backdrop-blur-md text-[16px]">
+                <div className="row">
+                  <div className="mb-3 col-12">
                     <TiLockClosed className="text-[18px]" />
                     <input
                       required
-                      className=" flex-1 bg-transparent h-full pl-2  placeholder:text-light-secondary_2 placeholder:dark:text-dark-secondary_2  placeholder:text-sm outline-none "
+                      className=" form-control "
                       type={`${show2 ? "text" : "password"}`}
                       name="confirm_password"
                       placeholder="Confirm Password"
@@ -476,7 +493,7 @@ function AddUser() {
                   <div className="mt-8 flex justify-center text-lg">
                     <button
                       type="submit"
-                      className="rounded-3xl bg-light-primary dark:bg-dark-primary text-[27px]  px-16 py-3 capitalize font-bold shadow-xl backdrop-blur-md text-light-secondary_2 dark:text-dark-secondary_2 transition-colors duration-300  hover:bg-light-secondary dark:bg-dark-secondary"
+                      className="btn btn-primary w-md outline"
                     >
                       <CgSpinnerTwo className="spin" />
                     </button>
@@ -485,7 +502,7 @@ function AddUser() {
                   <div className="mt-8 flex justify-center text-lg">
                     <button
                       type="submit"
-                      className="rounded-3xl bg-light-primary dark:bg-dark-primary  px-10 py-3 capitalize font-bold shadow-xl backdrop-blur-md text-light-secondary_2 dark:text-dark-secondary_2 transition-colors duration-300 hover:text-white hover:bg-light-secondary dark:bg-dark-secondary"
+                      className="btn btn-primary w-md outline"
                     >
                       Register
                     </button>
@@ -498,6 +515,11 @@ function AddUser() {
               </p>
             )}
           </div>
+
+          </div>
+          </div>
+          </div>
+          </div>
         ) : (
           <div className="w-full h-full grid place-content-center">
             <CgSpinnerTwo className="spin text-[25px]" />
@@ -505,6 +527,12 @@ function AddUser() {
         )}
       </div>
     </div>
+
+
+    </div>
+    </div>
+    </div>
+    </>
   );
 }
 

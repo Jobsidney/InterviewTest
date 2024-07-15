@@ -8,6 +8,7 @@ import { AiOutlineLaptop } from "react-icons/ai";
 import { toast } from "react-toastify";
 import { useNavigate } from "react-router-dom";
 import baseUrl from "../BaseUrl";
+import { Toaster } from "react-hot-toast";
 function AddCourse() {
   const navigate = useNavigate("");
   const [loading, setLoading] = useState(false);
@@ -63,28 +64,36 @@ function AddCourse() {
     setAcceptMode(event.target.checked);
   };
   return (
-    <div className="flex min-h-screen w-full items-center justify-center bg-light-primary dark:bg-dark-primary bg-cover bg-no-repeat overflow-y-auto">
-      <div className="rounded-xl h-auto w-11/12 md:w-4/6 bg-light-secondary dark:bg-dark-secondary bg-opacity-50 px-2 md:px-10 py-4 md:py-10 shadow-lg backdrop-blur-md ">
-        <div className="text-light-secondary_2 dark:text-dark-secondary_2 overflow-y-auto">
-          <div className="flex flex-col items-center">
-            <h1 className="mb-2 text-2xl text-light-secondary_2 text-center dark:text-dark-secondary_2 uppercase font-semibold">
-              Course Registration
-            </h1>
-            <img
-              className="w-[120px] h-[120px] object-cover"
-              src={logo}
-              alt="logo"
-            />
-            <span className="text-light-secondary_2 text-center dark:text-dark-secondary_2 font-semibold">
-              Enter Course Details
-            </span>
-          </div>
-          <form className="w-full" onSubmit={handleSubmit}>
-            <div className="mb-4 w-full flex">
-              <div className="w-full flex rounded-3xl items-center border-none bg-light-primary dark:bg-dark-primary bg-opacity-50 px-2 py-3  text-light-secondary_2 dark:text-dark-secondary_2  placeholder:text-sm shadow-lg outline-none backdrop-blur-md text-[16px]">
-                <BiSolidUser className="text-[18px]" />
+    <>
+    <Toaster />
+    <div className="main-content">
+    <div className="page-content">
+    <div className="container-fluid">
+    <div className="row">
+            <div className="col-12">
+                <div className="page-title-box d-sm-flex align-items-center justify-content-between">
+                <h4 className="card-title mb-4">Course Registration</h4>
+
+                          
+                
+
+                </div>
+            </div>
+        </div>
+
+        <div className="row">
+      <div className="col-xl-12">
+                  <div className="card ">
+                      <div className="card-body ">
+                      <div className="row col-xl-8 mx-auto">
+            <div className="mb-8 flex flex-col items-center">
+            
+          <form className="text-start " onSubmit={handleSubmit}>
+            <div className="row">
+              <div className="mb-3 col-12">
+              <label  className="form-label">Name <span className='text-danger fs-sm'>*</span></label>
                 <input
-                  className=" flex-1 bg-transparent placeholder:capitalize h-full pl-2  placeholder:text-light-secondary_2 placeholder:dark:text-dark-secondary_2 placeholder:text-sm outline-none "
+                  className=" form-control "
                   type="text"
                   name="name"
                   placeholder="Enter Course Name"
@@ -92,11 +101,11 @@ function AddCourse() {
                 />
               </div>
             </div>
-            <div className="mb-4 w-full flex">
-              <div className="w-full flex rounded-3xl items-center border-none bg-light-primary dark:bg-dark-primary bg-opacity-50 px-2 py-3  text-light-secondary_2 dark:text-dark-secondary_2  placeholder:text-sm shadow-lg outline-none backdrop-blur-md text-[16px]">
-                <TiLockClosed className="text-[18px]" />
+            <div className="row">
+              <div className="mb-3 col-12">
+              <label  className="form-label">Period <span className='text-danger fs-sm'>*</span></label>
                 <input
-                  className=" flex-1 bg-transparent h-full pl-2 placeholder:text-light-secondary_2 placeholder:dark:text-dark-secondary_2 placeholder:text-sm outline-none "
+                  className=" form-control "
                   type="number"
                   name="period"
                   required
@@ -104,11 +113,11 @@ function AddCourse() {
                 />
               </div>
             </div>
-            <div className="mb-4 w-full flex">
-              <div className="w-full flex rounded-3xl items-center border-none bg-light-primary dark:bg-dark-primary bg-opacity-50 px-2 py-3  text-light-secondary_2 dark:text-dark-secondary_2  placeholder:text-sm shadow-lg outline-none backdrop-blur-md text-[16px]">
-                <GiMoneyStack className="text-[18px]" />
+            <div className="row">
+              <div className="mb-3 col-12">
+              <label  className="form-label">Amount <span className='text-danger fs-sm'>*</span></label>
                 <input
-                  className=" flex-1 bg-transparent h-full pl-2 placeholder:text-light-secondary_2 placeholder:dark:text-dark-secondary_2 placeholder:text-sm outline-none "
+                  className=" form-control "
                   type="number"
                   name="fees"
                   required
@@ -116,9 +125,9 @@ function AddCourse() {
                 />
               </div>
             </div>
-            <div className="mb-4 w-full flex">
-              <div className="w-full flex rounded-3xl items-center justify-start border-none bg-light-primary dark:bg-dark-primary bg-opacity-50 px-2 py-3  text-light-secondary_2 dark:text-dark-secondary_2  placeholder:text-sm shadow-lg outline-none backdrop-blur-md text-[16px]">
-                <AiOutlineLaptop className="text-[18px] " />
+            <div className="row">
+              <div className="mb-3 col-12">
+              
                 <input
                   className="bg-transparent h-full ml-2 mr-4 accent-dark-secondary_2"
                   type="checkbox"
@@ -126,8 +135,9 @@ function AddCourse() {
                   checked={acceptMode}
                   onChange={handleCheckboxChange}
                 />
+                <label  className="form-label">Does the Course support both Hybrid and Remote? <span className='text-danger fs-sm'>*</span></label>
                 <p className="text-light-secondary_2 dark:text-dark-secondary_2 text-sm outline-none">
-                  Does the Course support both Hybrid and Remote?
+                  
                 </p>
               </div>
             </div>
@@ -135,7 +145,7 @@ function AddCourse() {
               <div className="mt-4 flex justify-center text-lg">
                 <button
                   type="submit"
-                  className="rounded-3xl bg-light-primary mb-2 dark:bg-dark-primary text-[27px] bg-opacity-50 px-16 py-3 capitalize font-bold shadow-xl backdrop-blur-md text-light-secondary_2 dark:text-dark-secondary_2 transition-colors duration-300  hover:bg-light-secondary dark:bg-dark-secondary"
+                  className="btn btn-primary w-md outline"
                 >
                   <CgSpinnerTwo className="spin" />
                 </button>
@@ -144,16 +154,25 @@ function AddCourse() {
               <div className="mt-4 flex justify-center text-lg">
                 <button
                   type="submit"
-                  className="rounded-3xl bg-light-primary mb-2 dark:bg-dark-primary bg-opacity-50 px-10 py-3 capitalize font-bold shadow-md backdrop-blur-md text-light-secondary_2 dark:text-dark-secondary_2 transition-colors duration-300 hover:text-white hover:bg-light-secondary dark:bg-dark-secondary"
+                  className="btn btn-primary w-md outline"
                 >
                   Add Course
                 </button>
               </div>
             )}
           </form>
+          </div>
+          </div>
+
+          </div>
+                      
+                  </div>
+        </div>
+    </div>
         </div>
       </div>
     </div>
+    </>
   );
 }
 

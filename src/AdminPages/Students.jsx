@@ -42,7 +42,7 @@ function Students() {
     {field:"first_name",headerName:"First Name",flex:1,cellClassName:"name-column--cell"},
     
     {field:"registration_number",flex:1,headerName:"registration_number"},
-    {field:"courseNames",flex:1,headerName:"Couse Name"},
+    {field:`${courseNames[1]}`,flex:1,headerName:"Couse Name"},
   
     {field:"Edit",HeadernAME:"Edit",renderCell:()=>{
         return(
@@ -50,8 +50,11 @@ function Students() {
                                                             <i className="fas fa-pencil-alt"></i>
                                                         </button>
     )}},
-    {field:"Delete",HeadernAME:"Delete",renderCell:()=>{return(
-        <IconButton aria-label="delete">
+    {field:"Delete",HeadernAME:"Delete",
+      editable: true,
+      type: "singleSelect",
+      renderCell:()=>{return(
+        <IconButton onClick={handleConfirmDelete} aria-label="delete">
                        <i  className="bx bx-trash"></i>
                      </IconButton>
     )}},
@@ -158,6 +161,7 @@ function Students() {
   }, [students]);
 
   const deleteStudent = (id) => {
+    alert('You sure you want to delete the student record')
     fetch(`https://mlight.nanesoft-lab.com/users/${id}/`, {
       method: "DELETE",
     })
@@ -312,6 +316,7 @@ function Students() {
                            onCellClick={(params)=>{
                             setSelectedRowData(params.row);
                             setSelectedRowID(params.row.id);
+                            setStudentId(params.row.id);
                             
                            }}
                            

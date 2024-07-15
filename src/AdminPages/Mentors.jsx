@@ -6,6 +6,12 @@ import { CgSpinnerTwo } from "react-icons/cg";
 import baseUrl from "../BaseUrl";
 import { toast } from "react-toastify";
 import { useNavigate } from "react-router-dom";
+import { Toaster } from "react-hot-toast";
+import { Box, IconButton, Modal } from "@mui/material";
+import LoaderIndicator from '../components/LoaderIndicator';
+import { DataGrid,GridToolbar } from "@mui/x-data-grid";
+import EditStudentAcademics from "../components/EditStudentAcademics";
+
 
 function Mentors() {
   const [mentors, setMentors] = useState([]);
@@ -16,10 +22,45 @@ function Mentors() {
   const [mentorId, setMentorId] = useState(null);
   const [mentorName, setMentorName] = useState("");
   const [search, setSearch] = useState("");
+  const [selectedRowData, setSelectedRowData] = useState(null);
+  const [selectedRowID, setSelectedRowID] = useState(0);
+
+  const [open, setOpen] = useState(false);
+  const [open2, setOpen2] = useState(false);
+  const handleOpen = () => setOpen(true);
+  const handleClose = () => setOpen(false);
   const navigate = useNavigate("");
 
+  const columns=[
+
+    {field:"last_name",headerName:"Last Name" },
+    {field:"first_name",headerName:"First Name",flex:1,cellClassName:"name-column--cell"},
+    
+    {field:"phone_number",flex:1,headerName:"registration_number"},
+    {field:`${courseNames[1]}`,flex:1,headerName:"Couse Name"},
+  
+    {field:"Edit",HeadernAME:"Edit",renderCell:()=>{
+        return(
+        <button onClick={handleOpen} className="btn btn-outline-secondary btn-sm edit" title="Edit">
+                                                            <i className="fas fa-pencil-alt"></i>
+                                                        </button>
+    )}},
+    {field:"Delete",HeadernAME:"Delete",
+      editable: true,
+      type: "singleSelect",
+      renderCell:()=>{return(
+        <IconButton onClick={handleConfirmDelete} aria-label="delete">
+                       <i  className="bx bx-trash"></i>
+                     </IconButton>
+    )}},
+    // {field:"View Details",HeadernAME:"View Details",renderCell:()=>{return(
+    //     <a type="button" className="btn btn-primary btn-sm btn-rounded waves-effect waves-light" >View Details </a>
+    // )}}
+]
+
+
   function fetchMentors() {
-    fetch(`${baseUrl}/users/`, {
+    fetch(`https://mlight.nanesoft-lab.com/users/`, {
       method: "GET",
       headers: {
         "Content-Type": "application/json",
@@ -97,7 +138,7 @@ function Mentors() {
         const courseNamesMap = {};
         for (const courseId of uniqueCourseIds) {
           try {
-            const response = await fetch(`${baseUrl}/courses/${courseId}/`, {
+            const response = await fetch(`https://mlight.nanesoft-lab.com/courses/${courseId}/`, {
               method: "GET",
               headers: {
                 "Content-Type": "application/json",
@@ -131,7 +172,7 @@ function Mentors() {
     setConfirmPage(true);
   };
   const deleteStudent = (id) => {
-    fetch(`${baseUrl}/users/${id}/`, {
+    fetch(`https://mlight.nanesoft-lab.com/users/${id}/`, {
       method: "DELETE",
     })
       .then((res) => {
@@ -185,150 +226,136 @@ function Mentors() {
   };
 
   return (
-    <div className="w-full h-full px-4">
-      <div className="w-full h-auto mt-4 flex rounded-md mb-4 flex-col">
-        <div className="flex items-center w-full h-auto py-2 px-4 rounded-t-md font-semibold bg-light-secondary dark:bg-dark-secondary">
-          <AiOutlineBars className="text-[18px] text-light-text_color dark:text-dark-text_color mr-2" />
-          <p className="capitalize text-light-text_color dark:text-dark-text_color mr-2">
-            All Technical Mentors{" "}
-          </p>
-          <input
-            onChange={(e) => setSearch(e.target.value)}
-            className="w-[40%] ml-2 py-2 px-4 outline-none rounded-3xl"
-            placeholder="Search by name/regNo/email"
-            type="search"
-            name="search"
-          />
-          <button
-            onClick={() => navigate("/admin/add_user")}
-            className="text-center mx-auto py-2 border px-4 bg-light-secondary_2 dark:bg-dark-secondary_2 rounded-3xl"
-          >
-            Add Mentor
-          </button>
-        </div>
-        {isLoading ? (
-          <div className="w-full py-10 grid place-content-center text-[25px]">
-            <CgSpinnerTwo className="spin" />
-          </div>
-        ) : filteredMentorsData.length > 0 ? (
-          <div className="w-full shadow-lg h-full bg-light-secondary_2 dark:bg-dark-secondary_2 px-4 py-2 rounded-b-md overflow-y-auto">
-            {filteredMentorsData.map(
-              ({ first_name, last_name, course_id, phone, id }, index) => (
-                <div className="flex justify-between shadow-lg flex-col lg:flex-row px-2 py-2 items-center md:px-4 mb-2 rounded-md bg-light-bg_white dark:bg-dark-bg_white">
-                  <div className=" w-full lg:w-auto text-left ">
-                    {index + 1}.
-                  </div>
-                  <div className="w-full flex lg:flex-col py-2 my-1 lg:py-1 shadow-md lg:shadow-none rounded-sm px-2 lg:w-auto">
-                    <p className="w-full font-semibold">First Name</p>
-                    <p className="capitalize">
-                      {first_name ? first_name : "--"}
-                    </p>
-                  </div>
-                  <div className="w-full flex lg:flex-col py-2 my-1 lg:py-1 shadow-md lg:shadow-none rounded-sm px-2 lg:w-auto">
-                    <p className="w-full font-semibold">Last Name</p>
-                    <p className="capitalize">{last_name ? last_name : "--"}</p>
-                  </div>
-                  <div className="w-full flex lg:flex-col py-2 my-1 lg:py-1 shadow-md lg:shadow-none rounded-sm px-2 lg:w-auto">
-                    <p className="w-full font-semibold">Phone Number</p>
-                    <p className="uppercase">{phone ? phone : "--"}</p>
-                  </div>
-                  <div className="w-full flex lg:flex-col py-2 my-1 lg:py-1 shadow-md lg:shadow-none rounded-sm px-2 lg:w-auto">
-                    <p className="w-full font-semibold">Course Assigned</p>
-                    <p className="capitalize">
-                      {courseNames[course_id] || "loading..."}
-                    </p>
-                  </div>
-                  <div className="w-full flex lg:flex-col py-2 my-1 lg:py-1 shadow-md lg:shadow-none rounded-sm px-2 lg:w-auto">
-                    <p className="w-full font-semibold">Actions</p>
-                    <div className="flex gap-2">
-                      <p className="w-auto py-2 px-3 rounded-md text-light-text_color transition-all duration-500 cursor-pointer hover:text-white text-lg bg-light-button_edit dark:bg-dark-button_edit">
-                        <RiEdit2Fill />
-                      </p>
-                      <p
-                        onClick={() => pickMentorId(id, first_name)}
-                        className="w-auto py-2 px-3 rounded-md text-light-text_color transition-all duration-500 cursor-pointer hover:text-red-600 text-lg bg-light-button_delete dark:bg-dark-button_delete"
-                      >
-                        <RiDeleteBin6Fill />
-                      </p>
-                    </div>
-                  </div>
+    <>
+    <Toaster />
+    <Modal
+        open={open}
+        onClose={handleClose}
+        aria-labelledby="modal-modal-title"
+        aria-describedby="modal-modal-description"
+      >
+       <EditStudentAcademics studentData={selectedRowData} handleClose={handleClose} rerender={()=>
+        {}
+       }/>
+      </Modal>
+      {/* <Modal
+        open={open2}
+        onClose={handleClose2}
+        aria-labelledby="modal-modal-title"
+        aria-describedby="modal-modal-description"
+      >
+       <EditStatus studentData={selectedRowData} handleClose={handleClose2} rerender={()=>{}} apiPath={'form_one'} apiPromotePath={'form_two'}/>
+      </Modal> */}
+    <div className="main-content">
+    <div className="page-content">
+    <div className="container-fluid">
+    
+      
+        <div className="row">
+            <div className="col-12">
+                <div className="page-title-box d-sm-flex align-items-center justify-content-between">
+                    <h4 className="mb-sm-0 font-size-18">Mentors Table</h4>
+                   
+                
+    
                 </div>
-              )
-            )}
-          </div>
-        ) : (
-          <p className="text-white w-full whitespace-nowrap py-6 text-center">
-            No mentors Found
-          </p>
-        )}
-      </div>
-      {confirmPage ? (
-        <div className="w-max h-max absolute top-0 right-2 md:top-[20px] md:right-5 p-2 z-10 rounded-xl shadow-lg bg-white">
-          <div className="w-[250px]">
-            <div className="text-center p-1 flex-auto justify-center">
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                className="w-4 h-4 -m-1 flex items-center text-red-500 mx-auto"
-                fill="none"
-                viewBox="0 0 24 24"
-                stroke="currentColor"
-              >
-                <path
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  strokeWidth="2"
-                  d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"
-                ></path>
-              </svg>
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                className="w-10 h-10 flex items-center text-red-500 mx-auto"
-                viewBox="0 0 20 20"
-                fill="currentColor"
-              >
-                <path
-                  fillRule="evenodd"
-                  d="M9 2a1 1 0 00-.894.553L7.382 4H4a1 1 0 000 2v10a2 2 0 002 2h8a2 2 0 002-2V6a1 1 0 100-2h-3.382l-.724-1.447A1 1 0 0011 2H9zM7 8a1 1 0 012 0v6a1 1 0 11-2 0V8zm5-1a1 1 0 00-1 1v6a1 1 0 102 0V8a1 1 0 00-1-1z"
-                  clipRule="evenodd"
-                />
-              </svg>
-              <p className="text-medium py-4">
-                Are you sure You want to delete{" "}
-                <span className="text-danger font-semibold">
-                  {mentorName ? mentorName : "this"}
-                </span>{" "}
-                from Technical Mentor's List?
-              </p>
             </div>
-            <div className="p-3 mt-2 text-center space-x-4 md:block">
-              <button
-                onClick={() => handleCancel()}
-                className="mb-2 md:mb-0 bg-white px-5 py-2 text-sm shadow-sm font-medium tracking-wider border text-gray-600 rounded-full hover:shadow-lg hover:bg-gray-100"
-              >
-                Cancel
-              </button>
-              {loadDelete ? (
-                <button
-                  onClick={() => handleConfirmDelete()}
-                  className="mb-2 md:mb-0 bg-red-500 border border-red-500 px-5 py-2 text-lg shadow-sm font-medium tracking-wider text-white rounded-full hover:shadow-lg hover:bg-red-600"
-                >
-                  <CgSpinnerTwo className="spin" />
-                </button>
-              ) : (
-                <button
-                  onClick={() => handleConfirmDelete()}
-                  className="mb-2 md:mb-0 bg-red-500 border border-red-500 px-5 py-2 text-sm shadow-sm font-medium tracking-wider text-white rounded-full hover:shadow-lg hover:bg-red-600"
-                >
-                  Delete
-                </button>
-              )}
-            </div>
-          </div>
         </div>
-      ) : (
-        ""
-      )}
+      
+    
+        <div className="row">
+            <div className="col-12">
+                <div className="card">
+                    <div className="card-body">
+                        <div className="d-flex flex-row justify-content-between">
+                            <h4 className="card-title"> Table</h4>
+                        <button onClick={()=>navigate('/register')}  type="button" className="btn btn-success mt-3 mt-lg-0" >Add Mentor</button>
+    
+                        </div>
+    
+                        
+    
+                        <div className="table-responsive">
+                            {isLoading?
+                               'loading'
+                                
+                            :
+                           
+                           <Box
+                           sx={{
+                            "& .MuiDataGrid-root":{
+                                border:"none"
+                            },
+                            "& .MuiDataGrid-columnHeader":{
+                                backgroundColor: "#eff2f7",
+                                color: "black",
+                                fontWeight: "bold"
+                            },
+                            // "& .MuiDataGrid-footerContainer":{
+                            //     backgroundColor: "#eff2f7",
+                            //     color: "black"
+                            // },
+                            "& .MuiDataGrid-toolbarContainer":{
+                                backgroundColor: "white",
+                                color: "black !important",
+                                paddingBottom:" 10px",
+                                paddingTop:" 10px"
+                            
+                            },
+                            "& .name-column--cell":{
+                                color:"#495057"
+                            
+                            },
+                            "& .KTNO-column--cell":{
+                                color:"black",
+                                fontWeight:"bold",
+                                fontSize:"17px"
+                            
+                            }
+                           }}
+                           
+                           ><DataGrid
+                           slots={{toolbar:GridToolbar}}
+                           rows={mentors}
+                           columns={columns}
+                           className="list"
+                           pagingation
+                           pageSize={10}
+                           rowLength={10}
+                          disableRowSelectionOnClick
+                           onCellClick={(params)=>{
+                            setSelectedRowData(params.row);
+                            setSelectedRowID(params.row.id);
+                            setMentorId(params.row.id);
+                            
+                           }}
+                           
+                           onCellEditStop={async(params)=>{
+                            const row =await params.row.status
+                             console.log(row);
+                            
+                           }}
+                           
+                           autoHeight
+                           // sortModel={sortModel}
+                           
+                           checkboxSelection
+                         
+                           
+                           >
+    
+                           </DataGrid></Box> }
+                        </div>
+    
+                    </div>
+                </div>
+            </div> 
+        </div> 
+    
+    </div> 
     </div>
+    </div>
+    </>
   );
 }
 
