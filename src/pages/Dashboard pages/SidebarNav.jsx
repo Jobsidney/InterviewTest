@@ -183,104 +183,106 @@ function SidebarNav({ setShowSidebar, userData, courseData }) {
         </header>
 
         <Sidebar>
-        <div className="vertical-menu">
+            <div className="vertical-menu">
 
-            <div data-simplebar="init" className="h-100 simplebar-scrollable-y">
-                <div className="simplebar-wrapper" >
-                    <div className="simplebar-height-auto-observer-wrapper">
-                        <div className="simplebar-height-auto-observer">
-                            </div></div>
-                            <div className="simplebar-mask"><div className="simplebar-offset" >
-                                <div className="simplebar-content-wrapper"  role="region" aria-label="scrollable content" >
-                                    <div className="simplebar-content" >
+                <div data-simplebar="init" className="h-100 simplebar-scrollable-y">
+                    <div className="simplebar-wrapper" >
+                        <div className="simplebar-height-auto-observer-wrapper">
+                            <div className="simplebar-height-auto-observer">
+                                </div></div>
+                                <div className="simplebar-mask"><div className="simplebar-offset" >
+                                    <div className="simplebar-content-wrapper"  role="region" aria-label="scrollable content" >
+                                        <div className="simplebar-content" >
 
-                
-                <div id="sidebar-menu" className="text-start mm-active">
-                <Menu
-                
-                >
-                <div className="menu-title" key="t-menu">Menu</div>
-                
+                    
+                    <div id="sidebar-menu" className="text-start mm-active">
+                    <Menu
+                    
+                    >
+                    <div className="menu-title" key="t-menu">Menu</div>
+                    
+    
+                    <MenuItem component={<Link to="/" />}> 
+                    <div className="">
+                                <a href="" className=" waves-effect mm-active">
+                                    <i className="bx bx-home-circle"></i>
+                                    <span key="t-dashboards">Dashboards</span>
+                                </a>
+                            
+                            </div>
+                    </MenuItem>
 
-                <MenuItem component={<Link to="/" />}> 
-                <div className="">
-                            <a href="" className=" waves-effect mm-active">
-                                <i className="bx bx-home-circle"></i>
-                                <span key="t-dashboards">Dashboards</span>
-                            </a>
-                        
-                        </div>
-                </MenuItem>
 
+                    <div className="menu-title" key="t-pages">Programmes</div>
+                    <SubMenu  label={<a href="" className="text-primary fw-bold">
+                                    <i className="bx bx-file"></i>
+                                    <span key="t-utility">Academics</span>
+                                </a>}>
+                    <MenuItem  component={<Link to="/dashboard/course_registration" />} > Course Registration </MenuItem>
+                    <MenuItem component={<Link to="/dashboard/results" />} > Provision Results </MenuItem>
+                  
+                    
+                    </SubMenu>
+                    <SubMenu  label={<a href="" className="text-primary fw-bold">
+                                    <i className="bx bx-file"></i>
+                                    <span key="t-utility">Financials</span>
+                                </a>}>
+                    <MenuItem  component={<Link to="/dashboard/fee_structure" />} > Fee Structure </MenuItem>
+                    <MenuItem component={<Link to="/dashboard/fee_statement" />} > Fee Statement </MenuItem>
+                    <MenuItem component={<Link to="/dashboard/receipts" />} > Receipts </MenuItem>
+                    <MenuItem component={<Link to="/dashboard/fee_payment" />} > Fee payment </MenuItem>
+                   
+                    
+                    </SubMenu>
+                    <MenuItem component={<Link to="/dashboard/mentors" />}> 
+                    <a href="" className="text-primary fw-bold">
+                                    <i className="bx bx-file"></i>
+                                    <span key="t-utility">My Mentor</span>
+                                </a>
+                    </MenuItem>
 
-                <div className="menu-title" key="t-pages">Programmes</div>
+                    <MenuItem component={<Link to="/dashboard/reset_password" />}> 
+                    <a href="" className="text-primary fw-bold">
+                                    <i className="bx bx-file"></i>
+                                    <span key="t-utility">Reset Password</span>
+                                </a>
+                    </MenuItem>
+                    <MenuItem component={<Link to="https://docs.google.com/forms/d/e/1FAIpQLScdmsmHvkZoEM_qwlkJjlINJe-6xOxhHcx8ZvhMYjGcgJKa5g/viewform" />}> 
+                    <a href="" className="text-primary fw-bold">
+                                    <i className="bx bx-file"></i>
+                                    <span key="t-utility">Feedback form</span>
+                                </a>
+                    </MenuItem>
+                    
+                    <div className="menu-title" key="t-apps">Apps</div>
+                    <MenuItem> <a href="" className=" waves-effect">
+                                    <i className="bx bx-calendar"></i>
+                                    <span key="t-dashboards">Calendars</span>
+                                </a>
+                     </MenuItem>
+                     <MenuItem> 
+                         <a href="chat.html" className="waves-effect">
+                                    <i className="bx bx-chat"></i>
+                                    <span key="t-chat">Chat</span>
+                                </a>
+                     </MenuItem>
+                     <SubMenu label={<a href="" className="waves-effect">
+                                    <i className="bx bx-envelope"></i>
+                                    <span key="t-email">Email</span>
+                                </a>}>
+                    <MenuItem> Inbox</MenuItem>
+                    <MenuItem> Read </MenuItem>
+                    </SubMenu>
 
-                <MenuItem component={<Link to="/admin/students" />}> 
-                <a href="" className="text-primary fw-bold">
-                                <i className="bx bx-file"></i>
-                                <span key="t-utility">Students</span>
-                            </a>
-                </MenuItem>
-                <MenuItem component={<Link to="/admin/mentors" />}> 
-                <a href="" className="text-primary fw-bold">
-                                <i className="bx bx-file"></i>
-                                <span key="t-utility">Mentors</span>
-                            </a>
-                </MenuItem>
-                <MenuItem component={<Link to="/admin/add_user" />}> 
-                <a href="" className="text-primary fw-bold">
-                                <i className="bx bx-file"></i>
-                                <span key="t-utility">Add user</span>
-                            </a>
-                </MenuItem>
-                <SubMenu  label={<a href="" className="text-primary fw-bold">
-                                <i className="bx bx-file"></i>
-                                <span key="t-utility">Courses</span>
-                            </a>}>
-                <MenuItem  component={<Link to="/admin/add_course" />} > Add Course </MenuItem>
-                <MenuItem component={<Link to="/admin/learning_mode" />} > Add Learning Mode </MenuItem>
-                <MenuItem component={<Link to="/admin/installment_plan" />} > Add Installment Plan </MenuItem>
-                <MenuItem component={<Link to="/admin/add_corhot" />} > Add Cohort </MenuItem>
-               
-                
-                </SubMenu>
+  </Menu>
+                     
+            
+                    </div>
 
-                <MenuItem component={<Link to="/admin/mentors" />}> 
-                <a href="" className="text-primary fw-bold">
-                                <i className="bx bx-file"></i>
-                                <span key="t-utility">All Transactions</span>
-                            </a>
-                </MenuItem>
-                
-                <div className="menu-title" key="t-apps">Apps</div>
-                <MenuItem> <a href="" className=" waves-effect">
-                                <i className="bx bx-calendar"></i>
-                                <span key="t-dashboards">Calendars</span>
-                            </a>
-                 </MenuItem>
-                 <MenuItem> 
-                     <a href="chat.html" className="waves-effect">
-                                <i className="bx bx-chat"></i>
-                                <span key="t-chat">Chat</span>
-                            </a>
-                 </MenuItem>
-                 <SubMenu label={<a href="" className="waves-effect">
-                                <i className="bx bx-envelope"></i>
-                                <span key="t-email">Email</span>
-                            </a>}>
-                <MenuItem> Inbox</MenuItem>
-                <MenuItem> Read </MenuItem>
-                </SubMenu>
-
-</Menu>
-                 
-        
-                </div>
-
-            </div></div></div></div><div className="simplebar-placeholder" ></div></div><div className="simplebar-track simplebar-horizontal" ><div className="simplebar-scrollbar" ></div></div><div className="simplebar-track simplebar-vertical" >
-                <div className="simplebar-scrollbar" ></div></div></div>
-        </div>
-        </Sidebar>
+                </div></div></div></div><div className="simplebar-placeholder" ></div></div><div className="simplebar-track simplebar-horizontal" ><div className="simplebar-scrollbar" ></div></div><div className="simplebar-track simplebar-vertical" >
+                    <div className="simplebar-scrollbar" ></div></div></div>
+            </div>
+            </Sidebar>
 
 </div>
     </div>
