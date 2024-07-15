@@ -9,9 +9,12 @@ import { FaBirthdayCake } from 'react-icons/fa'
 import { BiSolidPhone } from 'react-icons/bi'
 import { CgSpinnerTwo } from 'react-icons/cg'
 import { toast } from 'react-toastify';
+import { LoadingButton } from '@mui/lab';
+import { Toaster } from 'react-hot-toast';
 
 function Signup() {
-  const [loading, setLoading] = useState(false);
+   const [loading, setLoading] = useState(false);
+  // const [isLoading, setLoading] = useState(false);
   const handleSubmit = async (event) => {
     event.preventDefault();
     setLoading(true);
@@ -24,7 +27,7 @@ function Signup() {
     formDataObject['registration_date'] = new Date().toISOString();
     setTimeout(()=>{
       setLoading(false);
-      toast.success('Signed Up Successfully', {
+      Toaster.success('Signed Up Successfully', {
         position: toast.POSITION.TOP_CENTER,
         autoClose: 3000,
         style: {
@@ -36,74 +39,123 @@ function Signup() {
 }
 
   return (
-<div className="flex h-screen w-full items-center overflow-hidden justify-center bg-primary bg-cover bg-no-repeat" >
-  <div className="rounded-xl w-11/12 md:w-3/6 scroll max-h-full overflow-y-auto bg-secondary bg-opacity-50 px-2 md:px-10 py-4 md:py-10 shadow-lg backdrop-blur-md ">
-    <div className="text-secondary_2">
-      <div className="mb-8 flex flex-col items-center">
-        <h1 className="mb-2 text-2xl text-secondary_2 uppercase font-semibold">Student Registration</h1>
-        <img className='w-[120px] h-[120px] object-cover' src={logo} alt="logo" />
-        <span className="text-secondary_2 font-semibold capitalize">Student Details</span>
-      </div>
-      <form className='w-full' onSubmit={handleSubmit}>        
+<>
+
+<div className="account-pages my-5 pt-sm-5">
+      <Toaster />
+            <div className="container">
+                <div className="row justify-content-center">
+                    <div className="col-md-8 col-lg-6 col-xl-6">
+                        <div className="card overflow-hidden">
+                            <div className="bg-primary-subtle">
+                                <div className="row">
+                                    <div className="col-7">
+                                        <div className="text-primary p-4">
+                                            <h5 className="text-primary">Welcome !</h5>
+                                            <p>Register to  Moringa School</p>
+                                        </div>
+                                    </div>
+                                    <div className="col-5 align-self-end">
+                                        <img src="assets/images/profile-img.png" alt="" className="img-fluid"/>
+                                    </div>
+                                </div>
+                            </div>
+                            <div className="card-body pt-0"> 
+                                <div className="auth-logo">
+                                    <a href="index.html" className="auth-logo-light">
+                                        <div className="avatar-md profile-user-wid mb-4">
+                                            <span className="avatar-title rounded-circle bg-light">
+                                                <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQjZ0mzMNrvCYOAOts7eKAIQNC10xCqzYUtGQ&s" alt="" className="rounded-circle" height="34"/>
+                                            </span>
+                                        </div>
+                                    </a>
+
+                                    <a href="index.html" className="auth-logo-dark">
+                                        <div className="avatar-md profile-user-wid mb-4">
+                                            <span className="avatar-title rounded-circle bg-light">
+                                                <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQjZ0mzMNrvCYOAOts7eKAIQNC10xCqzYUtGQ&s" alt="" className="rounded-circle" height="34"/>
+                                            </span>
+                                        </div>
+                                    </a>
+                                </div>
+                                <div className="p-2">
+                                <form className='form-horizontal text-start' onSubmit={handleSubmit}>        
       <div className="mb-4 w-full flex"> 
-            <div className='w-full flex rounded-3xl border-none bg-primary bg-opacity-50 px-2 py-3  placeholder-secondary_2 text-secondary_2 placeholder:opacity-30 placeholder:text-sm shadow-lg outline-none backdrop-blur-md text-[16px]'>
-                <BiSolidUser className='text-[22px]'/>    
-                <input className=" flex-1 bg-transparent h-full pl-2  placeholder-secondary_2 placeholder:opacity-30 placeholder:text-sm outline-none" type="text" name="first_name" placeholder="Student First Name" />
+            <div className='mb-3'>
+            <label className="form-label">First Name</label>   
+                <input className=" form-control" type="text" name="first_name" placeholder="Student First Name" />
             </div>
         </div>
         <div className="mb-4 w-full flex"> 
-            <div className='w-full flex rounded-3xl border-none bg-primary bg-opacity-50 px-2 py-3  placeholder-secondary_2 text-secondary_2 placeholder:opacity-30 placeholder:text-sm shadow-lg outline-none backdrop-blur-md text-[16px]'>
-                <BiSolidUser className='text-[22px]'/>    
-                <input className=" flex-1 bg-transparent h-full pl-2  placeholder-secondary_2 placeholder:opacity-30 placeholder:text-sm outline-none " type="last_name" name="last_name" placeholder="Student Last Name" />
+            <div className='mb-3'>
+            <label className="form-label">Last Name</label>   
+                <input className=" form-control " type="last_name" name="last_name" placeholder="Student Last Name" />
             </div>
         </div>
         <div className="mb-4 w-full flex"> 
-            <div className='w-full flex rounded-3xl border-none bg-primary bg-opacity-50 px-2 py-3  placeholder-secondary_2 text-secondary_2 placeholder:opacity-30 placeholder:text-sm shadow-lg outline-none backdrop-blur-md text-[16px]'>
-                <FaBirthdayCake className='text-[22px]'/>    
-                <input className=" flex-1 bg-transparent h-full pl-2  placeholder-secondary_2 placeholder:opacity-30 placeholder:text-sm outline-none " type="student_id" name="student_id" placeholder="National ID/Birth Certificate Number" />
+            <div className='mb-3'>
+            <label className="form-label">National ID/Birth Number</label>    
+                <input className=" form-control " type="student_id" name="student_id" placeholder="National ID/Birth Certificate Number" />
             </div>
         </div>
         <div className="mb-4 w-full flex"> 
-            <div className='w-full flex rounded-3xl border-none bg-primary bg-opacity-50 px-2 py-3  placeholder-secondary_2 text-secondary_2 placeholder:opacity-30 placeholder:text-sm shadow-lg outline-none backdrop-blur-md text-[16px]'>
-                <MdEmail className='text-[22px]'/>    
-                <input className=" flex-1 bg-transparent h-full pl-2  placeholder-secondary_2 placeholder:opacity-30 placeholder:text-sm outline-none " type="text" name="email" placeholder="Enter your Email Address" />
+            <div className='mb-3'>
+            <label className="form-label">Email *</label>   
+                <input className=" form-control " type="text" name="email" placeholder="Enter your Email Address" />
             </div>
         </div>        
         <div className="mb-4 w-full flex"> 
-            <div className='w-full flex rounded-3xl border-none bg-primary bg-opacity-50 px-2 py-3  placeholder-secondary_2 text-secondary_2 placeholder:opacity-30 placeholder:text-sm shadow-lg outline-none backdrop-blur-md text-[16px]'>
-                <BiSolidPhone className='text-[22px]'/>    
-                <input className=" flex-1 bg-transparent h-full pl-2  placeholder-secondary_2 placeholder:opacity-30 placeholder:text-sm outline-none " type="number" name="phone" placeholder="Enter your phone Number" />
+            <div className='mb-3'>
+            <label className="form-label">Phone Number</label>  
+                <input className=" form-control " type="number" name="phone" placeholder="Enter your phone Number" />
             </div>
         </div>        
         <div className="mb-4 w-full flex"> 
-            <div className='w-full flex rounded-3xl border-none bg-primary bg-opacity-50 px-2 py-3  placeholder-secondary_2 text-secondary_2 placeholder:opacity-30 placeholder:text-sm shadow-lg outline-none backdrop-blur-md text-[16px]'>
-                <BsBookHalf className='text-[22px]'/>    
-                <input className=" flex-1 bg-transparent h-full pl-2  placeholder-secondary_2 placeholder:opacity-30 placeholder:text-sm outline-none " type="course_name" name="course_name" placeholder="Student Course Name" />
+            <div className='mb-3'>
+            <label className="form-label">  Course Name</label>   
+                <input className=" form-control " type="course_name" name="course_name" placeholder="Student Course Name" />
             </div>
         </div>
         <div className="mb-4 w-full flex"> 
-            <div className='w-full flex rounded-3xl border-none bg-primary bg-opacity-50 px-2 py-3  placeholder-secondary_2 text-secondary_2 placeholder:opacity-30 placeholder:text-sm shadow-lg outline-none backdrop-blur-md text-[16px]'>
-                <TiLockClosed className='text-[22px]'/>    
-                <input className=" flex-1 bg-transparent h-full pl-2  placeholder-secondary_2 placeholder:opacity-30 placeholder:text-sm outline-none "type="password" name="password" placeholder="Assign Temporary Password" />
+            <div className='mb-3'>
+            <label className="form-label">Password</label>   
+                <input className=" form-control "type="password" name="password" placeholder="Assign Temporary Password" />
             </div>
         </div>
         {
           loading? (
-            <div className="mt-8 flex justify-center text-lg">
-              <button type="submit" className="rounded-3xl bg-primary text-[27px] bg-opacity-50 px-16 py-3 capitalize font-bold shadow-xl backdrop-blur-md text-secondary_2 transition-colors duration-300  hover:bg-secondary"> 
+            <div className="mt-3 d-grid">
+              <button type="submit" className="btn btn-primary waves-effect waves-light"> 
                 <CgSpinnerTwo className='spin'/>
               </button>
             </div>
           ): (
-            <div className="mt-8 flex justify-center text-lg">
-              <button type="submit" className="rounded-3xl bg-primary bg-opacity-50 px-10 py-3 capitalize font-bold shadow-xl backdrop-blur-md text-secondary_2 transition-colors duration-300 hover:text-white hover:bg-secondary">Register</button>
+            <div className="mt-3 d-grid">
+              <button type="submit" className="btn btn-primary waves-effect waves-light">Register</button>
             </div>
           )
         }
       </form>
-    </div>
-  </div>
-</div>
+                                </div>
+            
+                            </div>
+                        </div>
+                        <div className="mt-5 text-center">
+                            
+                            <div>
+                                <p>Don't have an account ? <a href="/" className="fw-medium text-primary"> SignIn now </a> </p>
+                                {/* <p>© <script>document.write(new Date().getFullYear())</script> Skote. Crafted with <i className="mdi mdi-heart text-danger"></i> by Themesbrand</p> */}
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+
+</>
   )
 }
 

@@ -9,6 +9,8 @@ import '../src/assets/css/icons.min.css'
 import { Route, Routes, useNavigate } from 'react-router-dom'
 import Admin from './AdminPages/Admin'
 import ErrorPage from './Pages/ErrorPage'
+import ForgotPassword from './Pages/ForgotPassword'
+import Signup from './Pages/Signup'
 function App() {
   const navigate = useNavigate()
 
@@ -24,7 +26,7 @@ function App() {
     const loggedInTime =new Date(data.time);
     const now =  new Date();
     const timeDifference = now - loggedInTime;
-    const timeDifferenceInMinutes = timeDifference / (1000 * 60)
+    const timeDifferenceInMinutes = timeDifference / (10000000 * 60)
     if(timeDifferenceInMinutes > 20){
       navigate('/', {replace: true});
       localStorage.removeItem('userData')
@@ -36,10 +38,10 @@ function App() {
     <>
     <Routes>
       <Route path='/' element={<Login />} />
-      {/* <Route path='/signup' element={<Signup />} /> */}
+      <Route path='/signup' element={<Signup />} />
       {/* <Route path='/dashboard/*' element={<Dashboard />} />         */}
       <Route path='/admin/*' element={<Admin/>} />        
-      {/* <Route path='/forgot_password' element={<ForgotPassword/>} />         */}
+      <Route path='/forgot_password' element={<ForgotPassword/>} />        
       <Route path='*' element={<ErrorPage />} />
     </Routes>
     {/* <ToastContainer/> */}
