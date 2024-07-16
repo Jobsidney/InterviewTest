@@ -6,6 +6,7 @@ import useSignOut from 'react-auth-kit/hooks/useSignOut';
 import '../assets/css/app.min.css'
 import '../assets/css/bootstrap.min.css'
 import '../assets/css/icons.min.css'
+import NavMenuItem from './NavMenuItem';
 
 function LeftSideNav({  userData }) {
 
@@ -153,61 +154,33 @@ function LeftSideNav({  userData }) {
 
                     <div className="menu-title" key="t-pages">Programmes</div>
 
-                    <MenuItem component={<Link to="/admin/students" />}> 
-                    <a href="" className="text-primary fw-bold">
-                                    <i className="bx bx-file"></i>
-                                    <span key="t-utility">Students</span>
-                                </a>
-                    </MenuItem>
-                    <MenuItem component={<Link to="/admin/mentors" />}> 
-                    <a href="" className="text-primary fw-bold">
-                                    <i className="bx bx-file"></i>
-                                    <span key="t-utility">Mentors</span>
-                                </a>
-                    </MenuItem>
-                    <MenuItem component={<Link to="/admin/add_user" />}> 
-                    <a href="" className="text-primary fw-bold">
-                                    <i className="bx bx-file"></i>
-                                    <span key="t-utility">Add user</span>
-                                </a>
-                    </MenuItem>
+                    
+                    <NavMenuItem primaryText={true} title={'Students '} cssIcon={'bx-user'} link={'/admin/students'}/>
+                    
+                    <NavMenuItem primaryText={true} title={'Mentors'} cssIcon={'bx-male'} link={'/admin/mentors'}/>
+                    <NavMenuItem primaryText={true} title={'Add User'} cssIcon={'bx-pen'} link={'/admin/add_user'}/>
+                    
                     <SubMenu  label={<a href="" className="text-primary fw-bold">
                                     <i className="bx bx-file"></i>
                                     <span key="t-utility">Courses</span>
                                 </a>}>
-                    <MenuItem  component={<Link to="/admin/add_course" />} > Add Course </MenuItem>
-                    <MenuItem component={<Link to="/admin/learning_mode" />} > Add Learning Mode </MenuItem>
-                    <MenuItem component={<Link to="/admin/installment_plan" />} > Add Installment Plan </MenuItem>
-                    <MenuItem component={<Link to="/admin/add_corhot" />} > Add Cohort </MenuItem>
-                   
-                    
+                                <NavMenuItem primaryText={false} title={'Add Course'} cssIcon={''} link={'/admin/add_course'}/>
+                                <NavMenuItem primaryText={false} title={'Add Learning Mode'} cssIcon={''} link={'/admin/learning_mode'}/>
+                                <NavMenuItem primaryText={false} title={'Add Installment Plan'} cssIcon={''} link={'/admin/installment_plan'}/>
+                                <NavMenuItem primaryText={false} title={'Add Cohort'} cssIcon={''} link={'/admin/add_corhot'}/> 
                     </SubMenu>
-
-                    <MenuItem component={<Link to="/admin/mentors" />}> 
-                    <a href="" className="text-primary fw-bold">
-                                    <i className="bx bx-file"></i>
-                                    <span key="t-utility">All Transactions</span>
-                                </a>
-                    </MenuItem>
+                    <NavMenuItem primaryText={true} title={'All Transactions'} cssIcon={'bx-card'} link={'/admin/add_user'}/>
                     
                     <div className="menu-title" key="t-apps">Apps</div>
-                    <MenuItem> <a href="" className=" waves-effect">
-                                    <i className="bx bx-calendar"></i>
-                                    <span key="t-dashboards">Calendars</span>
-                                </a>
-                     </MenuItem>
-                     <MenuItem> 
-                         <a href="chat.html" className="waves-effect">
-                                    <i className="bx bx-chat"></i>
-                                    <span key="t-chat">Chat</span>
-                                </a>
-                     </MenuItem>
+                    <NavMenuItem primaryText={false} title={'Calendars'} cssIcon={'bx-calendar'} link={'/dashboard/'}/>
+                     <NavMenuItem primaryText={false} title={'Chat'} cssIcon={'bx-chat'} link={'/dashboard/'}/>
+                     
                      <SubMenu label={<a href="" className="waves-effect">
                                     <i className="bx bx-envelope"></i>
                                     <span key="t-email">Email</span>
                                 </a>}>
-                    <MenuItem> Inbox</MenuItem>
-                    <MenuItem> Read </MenuItem>
+                                <NavMenuItem primaryText={false} title={'Inbox'} cssIcon={''} link={'/dashboard/'}/>
+                                <NavMenuItem primaryText={false} title={'Read'} cssIcon={''} link={'/dashboard/'}/>
                     </SubMenu>
 
   </Menu>

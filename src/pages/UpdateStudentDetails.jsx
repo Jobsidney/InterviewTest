@@ -8,6 +8,7 @@ import { toast } from "react-toastify";
 import { useNavigate } from "react-router-dom";
 import baseUrl from "../BaseUrl";
 import { document } from "postcss";
+import CardHeader from "../components/CardHeader";
 
 function UpdateStudentDetails() {
   const [loading, setLoading] = useState(false);
@@ -100,14 +101,7 @@ function UpdateStudentDetails() {
     <div className="row">
       <div className="col-xl-12">
        <div className="card ">
-       <div className="col-lg-8 mx-auto text-center mb-md-5">
-       <img
-              className=" object-cover" width={"80px"}
-              src={'/src/Images/logo.png'}
-              alt="logo"
-            />
-            <h4 className="card-title mb-4">Update my  Infomation</h4>
-       </div>
+       <CardHeader title={'Update my Information'}/>
          
         {data ? (
           <form onSubmit={handleSubmit} className="col-lg-8 mx-auto text-start">
