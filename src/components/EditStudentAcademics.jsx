@@ -41,7 +41,7 @@ function EditStudentAcademics({studentData,handleClose,rerender}) {
 
                 <div className="row justify-content-center">
                     <div className="col-xl-10">
-                        <h4 className="text-primary">Update Student Academics!</h4>
+                        <h4 className="text-primary">Update Student Info!</h4>
                         <p className="text-muted font-size-14 mb-4"></p>
 
                         <form onSubmit={handleSubmit}>
@@ -49,37 +49,35 @@ function EditStudentAcademics({studentData,handleClose,rerender}) {
                             <div className="col-xl-12">
                                         <div className="card">
                                             <div className="card-body">
-                                                <h3 className="card-title mb-4">Academic Information</h3>
-
-                                                
-                                                <div className="row">
-                                                    <div className="mb-3 col-12">
-                                                        <label  className="form-label">KTNO </label>
-                                                        <input type="text" disabled className="form-control" id="kt_no" placeholder="Enter KTNO number" name="kt_no"  value={studentData.first_name} autoComplete='false' />
-                                                    </div>
-                                                
-                                                    </div>
-
+                                                <h3 className="card-title mb-4">Student Information</h3>
                                                     <div className="row">
                                                         
                                                         <div className="col-md-6">
                                                             <div className="mb-3">
-                                                                <label  className="form-label">Student Name</label>
+                                                                <label  className="form-label">Student Last Name</label>
                                                                 <input type="text" className="form-control" id="" disabled placeholder="Student Name" name="name" value={studentData.last_name} />
                                                             </div>
                                                         </div>
                                                         <div className="col-md-6">
-                                                            <div className="mb-3">
+                                                        <div className="mb-3 col-12">
+                                                        <label  className="form-label">Student First Name </label>
+                                                        <input type="text" disabled className="form-control" id="kt_no" placeholder="Enter KTNO number" name="kt_no"  value={studentData.first_name} autoComplete='false' />
+                                                    </div>
+                                                           
+                                                        </div>
+                                                    </div>
+                                                    <div className="row">
+                                                    <div className="mb-3 col-12">
                                                                 <label  className="form-label">registration_number</label>
                                                                 <input type="text" className="form-control" id="" disabled placeholder="Gender" name="gender" value={studentData.registration_number} onChange={onChange} required />
                                                             </div>
-                                                        </div>
+                                                
                                                     </div>
 
                                                     <div className="row">
                                                         <div className="col-lg-6">
                                                             <div className="mb-3">
-                                                                <label  className="form-label">Status</label>
+                                                                <label  className="form-label">Student ID</label>
                                                                 <input type="text" className="form-control" id="" disabled placeholder="Status" name="status" value={studentData.id} onChange={onChange}  required />
                                                             </div>
                                                         </div>
