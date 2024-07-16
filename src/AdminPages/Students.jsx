@@ -7,7 +7,6 @@ import { useNavigate } from "react-router-dom";
 import { Box, IconButton, Modal } from "@mui/material";
 import { Toaster } from "react-hot-toast";
 import { Modal as BaseModal } from '@mui/base/Modal';
-import LoaderIndicator from '../components/LoaderIndicator';
 import { DataGrid,GridToolbar } from "@mui/x-data-grid";
 import EditStatus from "../components/EditStatus";
 import EditStudentAcademics from "../components/EditStudentAcademics";
@@ -17,8 +16,6 @@ function Students() {
   const [courseNames, setCourseNames] = useState({});
   const [students, setStudents] = useState([]);
   const [isLoading, setIsLoading] = useState(true);
-  const [loadDelete, setLoadDelete] = useState(false);
-  const [confirmPage, setConfirmPage] = useState(false);
   const [search, setSearch] = useState("");
   const [done, setDone] = useState(true);
   const [studentId, setStudentId] = useState(null);

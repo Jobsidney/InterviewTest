@@ -1,5 +1,4 @@
 import React from "react";
-import logo from "../Images/logo.png";
 import { useState, useEffect } from "react";
 import { TiLockClosed } from "react-icons/ti";
 import { MdEmail } from "react-icons/md";

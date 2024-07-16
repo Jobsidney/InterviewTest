@@ -1,5 +1,4 @@
 import React, { useState, useEffect } from "react";
-import { GiLaptop } from "react-icons/gi";
 import { CgSpinnerTwo } from "react-icons/cg";
 import { toast } from "react-toastify";
 import baseUrl from "../../BaseUrl";

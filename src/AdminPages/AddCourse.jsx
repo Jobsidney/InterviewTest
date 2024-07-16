@@ -1,10 +1,4 @@
 import React, { useState } from "react";
-import logo from "../Images/logo.png";
-import { TiLockClosed } from "react-icons/ti";
-import { BiSolidUser } from "react-icons/bi";
-import { CgSpinnerTwo } from "react-icons/cg";
-import { GiMoneyStack } from "react-icons/gi";
-import { AiOutlineLaptop } from "react-icons/ai";
 import { toast } from "react-toastify";
 import { useNavigate } from "react-router-dom";
 import baseUrl from "../BaseUrl";

@@ -1,9 +1,7 @@
 import React, { useState, useEffect } from "react";
-import { GiLaptop } from "react-icons/gi";
 import { CgSpinnerTwo } from "react-icons/cg";
 import { toast } from "react-toastify";
 import baseUrl from "../../BaseUrl";
-import { useNavigate } from "react-router-dom";
 import { Toaster } from "react-hot-toast";
 import CardHeader from "../../components/CardHeader";
 
