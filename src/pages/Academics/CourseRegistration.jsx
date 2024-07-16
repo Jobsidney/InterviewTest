@@ -4,26 +4,43 @@ import { AiOutlineBars } from 'react-icons/ai'
 function CourseRegistration({courseData, userData}) {
   const cohort = JSON.parse(localStorage.getItem('cohortName'));
   return (
-    <div className='w-full h-full px-4 py-2 '>
+    <div className="main-content">
+    <div className="page-content">
+        <div className="container-fluid">
+
+        <div className="row">
+            <div className="col-12">
+                <div className="page-title-box d-sm-flex align-items-center justify-content-between">
+                <h4 className="card-title mb-4">Course Registration</h4>
+
+                          
+                
+
+                </div>
+            </div>
+        </div>
+    <div className="row">
+      <div className="col-xl-12">
+       <div className="card ">
       <div className="w-full h-auto flex mt-3 flex-col md:flex-row bg-light-secondary_2 dark:bg-dark-secondary_2 rounded-md">
-        <div className="w-full pb-4 md:grid md:grid-cols-2 rounded-md bg-light-secondary_2 dark:bg-dark-secondary_2 flex-1">
-          <div className="w-full ">
-              <p className='w-11/12 flex shadow-lg bg-light-bg_white dark:bg-dark-bg_white justify-between mx-auto mt-4 rounded-md py-2 px-2 text-text_color font-semibold bg-text_color capitalize'>Student Number:<span className='uppercase  font-medium'>{userData.registration_number}</span></p>
+        <div className="row pb-4 md:grid md:grid-cols-2 rounded-md bg-light-secondary_2 dark:bg-dark-secondary_2 flex-1">
+          <div className="col-6">
+              <p className='form-control fw-bold'>Student Number:<span className='fw-medium ps-3  font-medium'>{userData.registration_number}</span></p>
           </div>    
-          <div className="w-full ">
-              <p className='w-11/12 flex shadow-lg justify-between bg-light-bg_white dark:bg-dark-bg_white mx-auto mt-4 rounded-md py-2 px-2 text-text_color font-semibold bg-text_color capitalize'>Student Name:<span className='capitalize font-medium'>{userData.first_name} {userData.last_name}</span></p>
+          <div className="col-6">
+              <p className='form-control fw-bold'>Student Name:<span className='fw-medium ps-3 font-medium'>{userData.first_name} {userData.last_name}</span></p>
           </div>    
-          <div className="w-full ">
-              <p className='w-11/12 flex shadow-lg justify-between bg-light-bg_white dark:bg-dark-bg_white mx-auto mt-4 rounded-md py-2 px-2 text-text_color font-semibold bg-text_color capitalize '>Course Name:<span className='capitalize font-medium'>{courseData.name ? courseData.name : 'Loading...'}</span></p>
+          <div className="col-6">
+              <p className='form-control fw-bold '>Course Name:<span className='fw-medium ps-3 font-medium'>{courseData.name ? courseData.name : 'Loading...'}</span></p>
           </div>    
-          <div className="w-full ">
-              <p className='w-11/12 flex shadow-lg justify-between bg-light-bg_white dark:bg-dark-bg_white mx-auto mt-4 rounded-md py-2 px-2 text-text_color font-semibold bg-text_color capitalize '>Cohort:<span className='uppercase font-medium'>{cohort ? cohort : "Loading..."}</span></p>
+          <div className="col-6">
+              <p className='form-control fw-bold '>Cohort:<span className='fw-medium ps-3 font-medium'>{cohort ? cohort : "Loading..."}</span></p>
           </div>    
-          <div className="w-full ">
-              <p className='w-11/12 flex shadow-lg justify-between bg-light-bg_white dark:bg-dark-bg_white mx-auto mt-4 rounded-md py-2 px-2 text-text_color font-semibold bg-text_color'>Email:<a href='mailto:student@moringa.co.ke' className='font-medium'>{userData.email}</a></p>
+          <div className="col-6">
+              <p className=' form-control fw-bold'>Email:<a href='mailto:student@moringa.co.ke' className='fw-medium ps-3 font-medium'>{userData.email}</a></p>
           </div>    
-          <div className="w-full ">
-              <p className='w-11/12 flex shadow-lg justify-between bg-light-bg_white dark:bg-dark-bg_white mx-auto mt-4 rounded-md py-2 px-2 text-text_color font-semibold bg-text_color capitalize '>Start Date:<span className='capitalize font-medium'>{new Date(JSON.parse(localStorage.getItem('startDate'))).toDateString()}</span></p>
+          <div className="col-6">
+              <p className='form-control fw-bold '>Start Date:<span className='fw-medium ps-3 font-medium'>{new Date(JSON.parse(localStorage.getItem('startDate'))).toDateString()}</span></p>
           </div>           
         </div> 
       </div>
@@ -43,24 +60,7 @@ function CourseRegistration({courseData, userData}) {
         
       </div>
 
-      {/* <div className="w-full h-auto mt-6 mb-4 flex flex-col shadow-xl">
-        <div className="flex items-center w-full h-auto py-2 px-4 rounded-t-md font-semibold bg-light-secondary dark:bg-dark-secondary">
-          <AiOutlineBars className='text-[25px] mr-2'/>
-          <p className='w-full'>Re-Affirm Course Here</p>
-        </div>
-        <div className="w-full h-full bg-light-secondary_2 dark:bg-dark-secondary_2 shadow-lg border border-light-primary dark:border-dark-primary px-4 py-2 rounded-b-md">
-          <div className="flex justify-between px-2 py-2 items-center shadow-lg md:px-4 mb-2 rounded-md bg-light-bg_white dark:bg-dark-bg_white">
-            <p >Supplimentary</p>
-            <button className='bg-light-bg_white dark:bg-dark-bg_white shadow-lg border border-light-primary dark:border-dark-primary rounded-md py-2 px-4 font-semibold min-w-[130px]'>Suppliment</button>
-          </div>
-          <div className="flex justify-between px-2 py-2 items-center shadow-lg md:px-4 mb-2 rounded-md bg-light-bg_white dark:bg-dark-bg_white">
-            <p >Retake</p>
-            <button className='bg-light-bg_white dark:bg-dark-bg_white shadow-lg border border-light-primary dark:border-dark-primary rounded-md py-2 px-4 font-semibold min-w-[130px]'>Retake</button>
-          </div>
-        </div>
-        
-      </div> */}
-    </div>
+    </div> </div> </div> </div> </div> </div>
   )
 }
 

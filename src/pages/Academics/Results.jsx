@@ -29,7 +29,7 @@ function Results() {
               src={'/src/Images/logo.png'}
               alt="logo"
             />
-            <h4 className="card-title mb-4">Mobile Cohort {cohort} By weekly IP Results </h4>
+            <h4 className="card-title mb-4"> {cohort} By weekly IP Results </h4>
        </div>
         <div className="">
             <div className="d-flex flex-row justify-content-between shadow-lg   px-2 px-md-3 py-2 py-md-3  mb-2  rounded-md bg-light-bg_white">
