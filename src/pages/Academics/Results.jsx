@@ -4,14 +4,35 @@ import { AiOutlineBars } from 'react-icons/ai'
 function Results() {
   const cohort = JSON.parse(localStorage.getItem('cohortName'));
   return (
-    <div className='w-full h-full px-4'>
-      <div className="w-full h-auto mt-4 flex rounded-md mb-4 flex-col">
-        <div className="flex items-center w-full h-auto py-2 px-4 rounded-t-md font-semibold bg-light-secondary dark:bg-dark-secondary">
-          <AiOutlineBars className='text-[25px] text-light-text_color dark:text-dark-text_color mr-2'/>
-          <p>Mobile Cohort {cohort} By weekly IP Results </p>
+
+    <div className="main-content">
+    <div className="page-content">
+        <div className="container-fluid">
+
+        <div className="row">
+            <div className="col-12">
+                <div className="page-title-box d-sm-flex align-items-center justify-content-between">
+                <h4 className="card-title mb-4">Provision Results</h4>
+
+                          
+                
+
+                </div>
+            </div>
         </div>
-        <div className="w-full shadow-lg h-full bg-light-secondary_2 dark:bg-dark-secondary_2 px-4 py-2 rounded-b-md overflow-y-auto">
-            <div className="flex justify-between shadow-lg flex-col md:flex-row px-2 py-2 items-center md:px-4 mb-2 rounded-md bg-light-bg_white dark:bg-dark-bg_white">
+    <div className="row">
+      <div className="col-xl-12">
+       <div className="card ">
+       <div className="col-lg-8 mx-auto text-center mb-md-5">
+       <img
+              className=" object-cover" width={"80px"}
+              src={'/src/Images/logo.png'}
+              alt="logo"
+            />
+            <h4 className="card-title mb-4">Mobile Cohort {cohort} By weekly IP Results </h4>
+       </div>
+        <div className="">
+            <div className="d-flex flex-row justify-content-between shadow-lg   px-2 px-md-3 py-2 py-md-3  mb-2  rounded-md bg-light-bg_white">
               <div className="w-full flex md:flex-col md:w-auto">
                 <p className='w-full font-semibold'>Project Title</p>
                 <p>Hangman</p>
@@ -29,7 +50,7 @@ function Results() {
                 <p>75%</p>
               </div>              
             </div>
-            <div className="flex justify-between flex-col shadow-lg md:flex-row px-2 py-2 items-center md:px-4 mb-2 rounded-md bg-light-bg_white dark:bg-dark-bg_white">
+            <div className="d-flex flex-row justify-content-between shadow-lg   px-2 px-md-3 py-2 py-md-3  mb-2  rounded-md bg-light-bg_white">
               <div className="w-full flex md:flex-col md:w-auto">
                 <p className='w-full font-semibold'>Project Title</p>
                 <p>Hangman</p>
@@ -50,6 +71,10 @@ function Results() {
         </div>
         
       </div>
+    </div>
+    </div>
+    </div>
+    </div>
     </div>
   )
 }
