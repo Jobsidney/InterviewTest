@@ -1,5 +1,7 @@
+
 import React from 'react'
 import { AiOutlineBars } from 'react-icons/ai'
+import CardHeader from '../../components/CardHeader';
 
 function CourseRegistration({courseData, userData}) {
   const cohort = JSON.parse(localStorage.getItem('cohortName'));
@@ -22,8 +24,9 @@ function CourseRegistration({courseData, userData}) {
     <div className="row">
       <div className="col-xl-12">
        <div className="card ">
-      <div className="w-full h-auto flex mt-3 flex-col md:flex-row bg-light-secondary_2 dark:bg-dark-secondary_2 rounded-md">
-        <div className="row pb-4 md:grid md:grid-cols-2 rounded-md bg-light-secondary_2 dark:bg-dark-secondary_2 flex-1">
+        <CardHeader title={"Course Registration"}/>
+      <div className="">
+        <div className="row pb-4 ">
           <div className="col-6">
               <p className='form-control fw-bold'>Student Number:<span className='fw-medium ps-3  font-medium'>{userData.registration_number}</span></p>
           </div>    
@@ -44,16 +47,16 @@ function CourseRegistration({courseData, userData}) {
           </div>           
         </div> 
       </div>
-      <div className="w-full h-auto mt-6 flex flex-col shadow-xl">
-        <div className="flex items-center w-full h-auto py-2 px-4 rounded-t-md font-semibold bg-light-secondary dark:bg-dark-secondary">
+      <div className="">
+        <div className="">
           <AiOutlineBars className='text-[25px] text-text_color mr-2'/>
           <p>Registered Course List</p>
         </div>
-        <div className="w-full h-full bg-light-secondary_2 dark:bg-dark-secondary_2 px-4 py-2 rounded-b-md">
-            <div className="flex justify-between flex-col shadow-lg md:flex-row px-2 py-2 items-center md:px-4 mb-2 rounded-md bg-light-bg_white dark:bg-dark-bg_white">
+        <div className="">
+            <div className="">
               <p className='w-full'>{courseData ? courseData.name : 'Loading...'}</p>
               <p className='w-full'>Duration <span>{courseData.period ? courseData.period : 'Loading...'} Months</span></p>
-              <button className='w-1/2 mt-2 md:mt-0 md:w-auto bg-light-bg_white dark:bg-dark-bg_white shadow-lg border border-light-primary dark:border-dark-primary rounded-md py-2 px-4 font-semibold min-w-[130px]'>Active</button>
+              <button className='btn btn-primary px-3'>Active</button>
             </div>
             
         </div>
