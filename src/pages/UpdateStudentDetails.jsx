@@ -82,25 +82,40 @@ function UpdateStudentDetails() {
       })
   };
   return (
-    <div className="rounded-xl h-auto w-11/12 md:w-4/6 bg-light-secondary dark:bg-dark-secondary bg-opacity-50 px-2 md:px-10 py-4 md:py-10 shadow-lg backdrop-blur-md ">
-      <div className="text-light-secondary_2 dark:text-dark-secondary_2 overflow-y-auto">
-        <div className="flex flex-col items-center">
-          <h1 className="mb-2 text-2xl text-light-secondary_2 text-center dark:text-dark-secondary_2 uppercase font-semibold">
-            Update Your Details
-          </h1>
-          <img
-            className="w-[120px] h-[120px] object-cover"
-            src={logo}
-            alt="logo"
-          />
+    <div className="main-content">
+    <div className="page-content">
+        <div className="container-fluid">
+
+        <div className="row">
+            <div className="col-12">
+                <div className="page-title-box d-sm-flex align-items-center justify-content-between">
+                <h4 className="card-title mb-4">Update  Info</h4>
+
+                          
+                
+
+                </div>
+            </div>
         </div>
+    <div className="row">
+      <div className="col-xl-12">
+       <div className="card ">
+       <div className="col-lg-8 mx-auto text-center mb-md-5">
+       <img
+              className=" object-cover" width={"80px"}
+              src={'/src/Images/logo.png'}
+              alt="logo"
+            />
+            <h4 className="card-title mb-4">Update my  Infomation</h4>
+       </div>
+         
         {data ? (
-          <form onSubmit={handleSubmit} className="w-full">
-            <div className="mb-4 w-full flex">
-              <div className="w-full flex rounded-3xl items-center border-none bg-light-primary dark:bg-dark-primary bg-opacity-50 px-2 py-3  text-light-secondary_2 dark:text-dark-secondary_2  placeholder:text-sm shadow-lg outline-none backdrop-blur-md text-[16px]">
-                <BiSolidPhone className="text-[18px]" />
+          <form onSubmit={handleSubmit} className="col-lg-8 mx-auto text-start">
+            <div className="mb-4 ">
+              <div className="">
+              <label  className="form-label">PhoneNumber</label>
                 <input
-                  className=" flex-1 bg-transparent h-full pl-2 placeholder:text-light-secondary_2 placeholder:dark:text-dark-secondary_2 placeholder:text-sm outline-none "
+                  className=" form-control "
                   type="tel"
                   name="phone"
                   onChange={handlePhoneChange}
@@ -109,15 +124,15 @@ function UpdateStudentDetails() {
                 />
               </div>
             </div>
-            <div className="mb-4 w-full flex">
-              <div className="w-full flex rounded-3xl items-center border-none bg-light-primary dark:bg-dark-primary bg-opacity-50 px-2 py-3  text-light-secondary_2 dark:text-dark-secondary_2  placeholder:text-sm shadow-lg outline-none backdrop-blur-md text-[16px]">
+            <div className="mb-4 ">
+              <div className="">
                 <BiImages className="text-[18px]" />
-                <p className="text-light-secondary_2 pl-2 dark:text-dark-secondary_2 text-sm outline-none">
+                <p className="">
                   Upload Image
                 </p>
                 <input
                   onChange={handleImageUpload}
-                  className=" flex-1 bg-transparent h-full pl-2 placeholder:text-light-secondary_2 placeholder:dark:text-dark-secondary_2 placeholder:text-sm outline-none "
+                  className=" form-control "
                   type="file"
                   name="image"
                   accept="image/*"
@@ -128,7 +143,7 @@ function UpdateStudentDetails() {
               <div className="mt-4 flex justify-center text-lg">
                 <button
                   type="submit"
-                  className="rounded-3xl bg-light-primary mb-2 dark:bg-dark-primary text-[27px] bg-opacity-50 px-16 py-3 capitalize font-bold shadow-xl backdrop-blur-md text-light-secondary_2 dark:text-dark-secondary_2 transition-colors duration-300  hover:bg-light-secondary dark:bg-dark-secondary"
+                  className="btn btn-primary w-md outline"
                 >
                   <CgSpinnerTwo className="spin" />
                 </button>
@@ -137,7 +152,7 @@ function UpdateStudentDetails() {
               <div className="mt-4 flex justify-center text-lg">
                 <button
                   type="submit"
-                  className="rounded-3xl bg-light-primary mb-2 dark:bg-dark-primary bg-opacity-50 px-10 py-3 capitalize font-bold shadow-md backdrop-blur-md text-light-secondary_2 dark:text-dark-secondary_2 transition-colors duration-300 hover:text-white hover:bg-light-secondary dark:bg-dark-secondary"
+                  className="btn btn-primary w-md outline"
                 >
                   Update
                 </button>
@@ -148,7 +163,7 @@ function UpdateStudentDetails() {
           "Loading..."
         )}
       </div>
-    </div>
+    </div> </div>  </div> </div> </div> 
   );
 }
 

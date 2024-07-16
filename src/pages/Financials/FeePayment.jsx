@@ -5,6 +5,7 @@ import { AiOutlineCheck } from "react-icons/ai";
 import { CgSpinnerTwo } from "react-icons/cg";
 import { toast } from "react-toastify";
 import baseUrl from "../../BaseUrl";
+import CardHeader from "../../components/CardHeader";
 
 function FeePayment() {
   const [loading, setLoading] = useState(false);
@@ -84,24 +85,40 @@ function FeePayment() {
   };
 
   return (
-    <div className="w-full h-full flex items-center justify-center">
+    <div className="main-content">
+    <div className="page-content">
+        <div className="container-fluid">
+
+        <div className="row">
+            <div className="col-12">
+                <div className="page-title-box d-sm-flex align-items-center justify-content-between">
+                <h4 className="card-title mb-4">Pay tuition Fee</h4>
+
+                          
+                
+
+                </div>
+            </div>
+        </div>
+    <div className="row">
+      <div className="col-xl-12">
+       <div className="card ">
+       <CardHeader title={'Mpesa Fee Payment'}/>
       <form
         onSubmit={(e) => handleFeePayment(e)}
-        className="rounded-xl w-11/12 sm:w-9/12 md:w-5/6 lg:w-4/6 scroll max-h-full overflow-y-auto bg-light-secondary dark:bg-dark-secondary  px-2 md:px-10 py-4 md:py-6 shadow-lg backdrop-blur-md flex items-center flex-col"
+        className="text-start col-lg-8 mx-auto  mb-md-5"
         action=""
       >
-        <p>Mpesa Fee Payment</p>
+        
         <div className="w-full h-auto flex  flex-col md:flex-row items-center justify-center gap-3"></div>
         <div className="w-full h-auto my-2 ">
           <div className="mb-4 w-full flex items-center justify-center flex-col gap-4">
             <div
-              className={`w-full ${
-                showNumber ? "flex" : "hidden"
-              } rounded-3xl items-center border-none bg-light-primary dark:bg-dark-primary  px-2 py-3  placeholder:text-light-secondary_2 placeholder:dark:text-dark-secondary_2 text-light-secondary_2 dark:text-dark-secondary_2  placeholder:text-sm shadow-lg outline-none backdrop-blur-md text-[16px]`}
+              className='mb-4'
             >
-              <BiSolidPhone className="text-[18px]" />
+              <label  className="form-label">M-Pesa Number</label>
               <input
-                className=" flex-1 bg-transparent h-full pl-2  placeholder:text-light-secondary_2 placeholder:dark:text-dark-secondary_2  placeholder:text-sm outline-none"
+                className=" form-control"
                 type="tel"
                 id="phone"
                 name="mpesa_phone"
@@ -109,10 +126,10 @@ function FeePayment() {
                 placeholder="Enter Mpesa Number eg 0710****30"
               />
             </div>
-            <div className="w-full flex rounded-3xl items-center border-none bg-light-primary dark:bg-dark-primary  px-2 py-3  placeholder:text-light-secondary_2 placeholder:dark:text-dark-secondary_2 text-light-secondary_2 dark:text-dark-secondary_2  placeholder:text-sm shadow-lg outline-none backdrop-blur-md text-[16px]">
-              <GiMoneyStack className="text-[18px]" />
+            <div className=" mb-4">
+            <label  className="form-label">Amount</label>
               <input
-                className=" flex-1 bg-transparent h-full pl-2  placeholder:text-light-secondary_2 placeholder:dark:text-dark-secondary_2  placeholder:text-sm outline-none"
+                className=" form-control"
                 type="number"
                 name="amount"
                 id="amount"
@@ -121,21 +138,21 @@ function FeePayment() {
               />
             </div>
             {loading ? (
-              <div className="mt-2 flex justify-center text-lg">
+              <div className="col-lg-4 mx-auto ">
                 <button
                   type="submit"
-                  className="rounded-3xl bg-light-primary dark:bg-dark-primary text-[27px] bg-opacity-50 px-16 py-2 capitalize font-bold shadow-xl backdrop-blur-md text-light-secondary_2 dark:text-dark-secondary_2 transition-colors duration-300  hover:bg-light-secondary dark:bg-dark-secondary"
+                  className="btn btn-primary w-md outline"
                 >
                   <CgSpinnerTwo className="spin" />
                 </button>
               </div>
             ) : (
-              <div className="mt-2 flex justify-center text-lg">
+              <div className="col-lg-4 mx-auto text-center">
                 <button
                   type="submit"
-                  className="rounded-3xl bg-light-primary dark:bg-dark-primary bg-opacity-50 px-10 py-2 capitalize font-bold shadow-md backdrop-blur-md text-light-secondary_2 dark:text-dark-secondary_2 transition-colors duration-300 hover:text-white hover:bg-light-secondary dark:bg-dark-secondary"
+                  className="btn btn-primary w-md outline"
                 >
-                  Pay
+                  Pay Now
                 </button>
               </div>
             )}
@@ -143,6 +160,7 @@ function FeePayment() {
         </div>
       </form>
     </div>
+    </div> </div> </div> </div> </div> 
   );
 }
 

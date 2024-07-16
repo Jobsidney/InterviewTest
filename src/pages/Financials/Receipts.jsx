@@ -31,6 +31,25 @@ function Receipts() {
   };
 
   return (
+
+    <div className="main-content">
+    <div className="page-content">
+        <div className="container-fluid">
+
+        <div className="row">
+            <div className="col-12">
+                <div className="page-title-box d-sm-flex align-items-center justify-content-between">
+                <h4 className="card-title mb-4">Receipts</h4>
+
+                          
+                
+
+                </div>
+            </div>
+        </div>
+    <div className="row">
+      <div className="col-xl-12">
+       <div className="card ">
     <div className="w-full h-full flex flex-col mt-2 px-4 py-2">
       <div className="w-full flex items-center px-4 bg-light-secondary dark:bg-dark-secondary rounded-t-md py-2 gap-3">
         <img className="w-[35px]" src={statement} alt="" />
@@ -41,8 +60,8 @@ function Receipts() {
           <CgSpinnerTwo className="spin" />
         </div>
       ) : (
-        <div className="w-full flex-1 px-4 py-2 shadow-lg rounded-b-md overflow-y-auto bg-light-secondary_2 dark:bg-dark-secondary_2">
-          <table class="rwd-table mt-3 mb-3">
+        <div className="w-100">
+          <table class="rwd-table mt-3 mb-3 w-100">
             <tr className="w-full">
               <th className="w-8" id="bold">
                 No.
@@ -109,7 +128,7 @@ function Receipts() {
                       <button
                         onClick={() => handlePrint(id)}
                         type="button"
-                        className="py-2 my-1 px-5 bg-light-bg_white dark:bg-dark-secondary_2 text-dark-secondary_2 dark:text-light-secondary_2 font-semibold uppercase text-sm hover:bg-gray-100 rounded-md "
+                        className="btn btn-primary w-md outline "
                       >
                         Print
                       </button>
@@ -125,7 +144,7 @@ function Receipts() {
           </table>
         </div>
       )}
-    </div>
+    </div> </div> </div> </div> </div> </div> </div>
   );
 }
 

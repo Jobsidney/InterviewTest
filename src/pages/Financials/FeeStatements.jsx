@@ -170,6 +170,25 @@ function FeeStatements() {
   return loading ? (
     <CgSpinnerTwo className="spin text-[24px]" />
   ) : (
+
+    <div className="main-content">
+    <div className="page-content">
+        <div className="container-fluid">
+
+        <div className="row">
+            <div className="col-12">
+                <div className="page-title-box d-sm-flex align-items-center justify-content-between">
+                <h4 className="card-title mb-4">Fee StETEMENT</h4>
+
+                          
+                
+
+                </div>
+            </div>
+        </div>
+    <div className="row">
+      <div className="col-xl-12">
+       <div className="card ">
     <pdf size="A4">
       <View>
         <View style={styles.containerInfo}>
@@ -238,6 +257,8 @@ function FeeStatements() {
         </View>
       </View>
     </pdf>
+    </div>
+    </div>  </div>  </div>  </div>  </div>  
   );
 }
 

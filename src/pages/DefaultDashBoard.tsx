@@ -69,7 +69,7 @@ export default function DefaultDashBoard() {
                             <div className="row">
                                 <div className="col-12">
                                 <div className="row">
-                                        <a href="/" className="col-md-3">
+                                        <a href="/" className="col-md-4">
                                             <div className="card mini-stats-wid">
                                                 <div className="card-body text-start">
                                                     <div className="d-flex">
@@ -92,7 +92,7 @@ export default function DefaultDashBoard() {
                                                 </div>
                                             </div>
                                         </a>
-                                        <a href="/inuka" className="col-md-3">
+                                        <a href="/inuka" className="col-md-4">
                                             <div className="card mini-stats-wid">
                                                 <div className="card-body text-start">
                                                     <div className="d-flex">
@@ -115,7 +115,7 @@ export default function DefaultDashBoard() {
                                                 </div>
                                             </div>
                                         </a>
-                                        <a href="/janjaruka" className="col-md-3">
+                                        <a href="/janjaruka" className="col-md-4">
                                             <div className="card mini-stats-wid">
                                                 <div className="card-body text-start">
                                                     <div className="d-flex">
@@ -140,29 +140,7 @@ export default function DefaultDashBoard() {
                                             </div>
                                         </a>
                                        
-                                        <a href="/tuungane" className="col-md-3">
-                                            <div className="card mini-stats-wid">
-                                                <div className="card-body text-start">
-                                                    <div className="d-flex">
-                                                        <div className="flex-grow-1">
-                                                            <p className="text-muted fw-medium">Tuungane</p>
-                                                            <div className="d-flex flex-row">
-                                                                <h5 className="mb-0 ">290 </h5>
-                                                                <small className="text-muted fw-medium text-sm mx-2">Beneficieries </small>
-                                                            </div>
-                                                        </div>
-
-                                                        <div className="flex-shrink-0 align-self-center">
-                                                            <div className="avatar-sm rounded-circle bg-primary mini-stat-icon">
-                                                                <span className="avatar-title rounded-circle bg-primary">
-                                                                    <i className="bx bx-purchase-tag-alt font-size-24"></i>
-                                                                </span>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </a>
+                                        
                                     </div>
                                 </div>
                                 <div className="col-xl-4">

@@ -5,8 +5,8 @@ import baseUrl from "../../BaseUrl";
 
 const styles = StyleSheet.create({
   receiptContainer: {
-    width: "75%",
-    height: "auto",
+    width: "1000px",
+    height: "100px",
     display: 'flex',
     flexDirection: "row",
     justifyContent: 'space-between',
@@ -170,6 +170,10 @@ function FeeStructure() {
   return loading ? (
     <CgSpinnerTwo className="spin text-[24px]" />
   ) : (
+
+    <div className="main-content">
+    <div className="page-content">
+        <div className="container-fluid">
     <View>
       <View style={styles.containerInfo}>
         <View style={styles.infoContainer}>
@@ -233,6 +237,9 @@ function FeeStructure() {
         </View>
       </View>
     </View>
+    </div>
+    </div>
+    </div>
   );
 }
 

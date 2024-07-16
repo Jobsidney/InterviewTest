@@ -522,7 +522,7 @@ function Content({ userData, courseData, done2, dueDates }) {
         <div className="card-body">
         <h4 className="card-title mb-4">Student Information</h4>
         <img
-              className="w-[70px] ml-6 h-[70px] mt-2 object-cover shadow-xl rounded-[50%]"
+              className=" mt-2 object-contain shadow-xl  rounded-circle " height={"80px"} width={'80px'}
               src={userData.profile_pic ? userData.profile_pic : profilePic}
               alt=""
             />

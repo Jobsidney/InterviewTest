@@ -78,6 +78,24 @@ function StudentTransaction() {
     (_, index) => 2018 + index
   );
   return (
+    <div className="main-content">
+    <div className="page-content">
+        <div className="container-fluid">
+
+        <div className="row">
+            <div className="col-12">
+                <div className="page-title-box d-sm-flex align-items-center justify-content-between">
+                <h4 className="card-title mb-4">Fee StTEMENT</h4>
+
+                          
+                
+
+                </div>
+            </div>
+        </div>
+    <div className="row">
+      <div className="col-xl-12">
+       <div className="card ">
     <div className="w-full h-full flex flex-col mt-2 px-4 py-2">
       <div className="w-full flex flex-wrap items-center px-4 bg-light-secondary dark:bg-dark-secondary rounded-t-md py-2 gap-3">
         <IoIosArrowRoundBack
@@ -168,8 +186,8 @@ function StudentTransaction() {
             {studentDetails.first_name} {studentDetails.last_name} Reg No.{" "}
             {studentDetails.registration_number}
           </p>
-          <table class="rwd-table mt-3 mb-3">
-            <tr className="w-full">
+          <table className="rwd-table mt-3 w-100 mb-3">
+            <tr className="w-100 border-bottom pb-5 ">
               <th className="w-8" id="bold">
                 No.
               </th>
@@ -237,7 +255,7 @@ function StudentTransaction() {
           </table>
         </div>
       )}
-    </div>
+    </div></div></div></div></div></div></div>
   );
 }
 
