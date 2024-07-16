@@ -16,6 +16,7 @@ import { useNavigate } from "react-router-dom";
 import { AiFillEyeInvisible } from "react-icons/ai";
 import { AiFillEye } from "react-icons/ai";
 import { Toaster } from "react-hot-toast";
+import CardHeader from "../components/CardHeader";
 
 function AddUser() {
   const navigate = useNavigate("");
@@ -234,17 +235,7 @@ function AddUser() {
                       <div className="row col-xl-8 mx-auto">
                       <div className='mb-5'>
           <div className="row col-xl-8 mx-auto">
-            <div className="mb-8 flex flex-col items-center">
-            
-              <img
-                className=" object-cover" width={"80px"}
-                src={logo}
-                alt="logo"
-              />
-              <p className="text-light-secondary_2 dark:text-dark-secondary_2 font-semibold capitalize">
-                User(Student/Mentor) Details
-              </p>
-            </div>
+            <CardHeader title={"User(Student/Mentor) Details"} />
             {installmentPlan.length > 0 && cohort.length > 0 ? (
               <form className="col-12 text-start" onSubmit={handleSubmit}>
                 <div className="row">

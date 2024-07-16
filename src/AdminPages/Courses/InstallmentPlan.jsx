@@ -4,6 +4,7 @@ import { CgSpinnerTwo } from "react-icons/cg";
 import { toast } from "react-toastify";
 import baseUrl from "../../BaseUrl";
 import { Toaster } from "react-hot-toast";
+import CardHeader from "../../components/CardHeader";
 
 function InstallmentPlan() {
     const [loading, setLoading] = useState(false);
@@ -86,17 +87,7 @@ function InstallmentPlan() {
                       <div className="card-body ">
                       <div className="row col-xl-6 mx-auto">
                       <div className='mb-5'>
-                      <div className="mb-5 col-6 mx-auto text-center">
-            
-            <img
-              className=" object-cover" width={"80px"}
-              src={'/src/Images/logo.png'}
-              alt="logo"
-            />
-            <p className="text-light-secondary_2 dark:text-dark-secondary_2 font-semibold capitalize">
-             add learning mode below
-            </p>
-          </div>
+                      <CardHeader title={"Add Installment plans"} />
                       <form
         onSubmit={handleSubmit}
         className="text-start"

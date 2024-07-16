@@ -4,6 +4,7 @@ import { CgSpinnerTwo } from "react-icons/cg";
 import { toast } from "react-toastify";
 import baseUrl from "../../BaseUrl";
 import { Toaster } from "react-hot-toast";
+import CardHeader from "../../components/CardHeader";
 function Corhot() {
   const [loading, setLoading] = useState(false);
   const handleSubmit = async (event) => {
@@ -82,6 +83,7 @@ function Corhot() {
       <div className="col-xl-12">
                   <div className="card ">
                       <div className="card-body ">
+                      <CardHeader title={"Add new cohort"} />
                       <div className="row col-xl-8 mx-auto">
                       <div className='mb-5'>
       <form

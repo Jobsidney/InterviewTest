@@ -269,7 +269,7 @@ function Mentors() {
                     <div className="card-body">
                         <div className="d-flex flex-row justify-content-between">
                             <h4 className="card-title"> Table</h4>
-                        <button onClick={()=>navigate('/register')}  type="button" className="btn btn-success mt-3 mt-lg-0" >Add Mentor</button>
+                        <button onClick={()=>navigate('/admin/add_user')}  type="button" className="btn btn-success mt-3 mt-lg-0" >Add Mentor</button>
     
                         </div>
     

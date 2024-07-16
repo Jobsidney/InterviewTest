@@ -9,6 +9,7 @@ import { toast } from "react-toastify";
 import { useNavigate } from "react-router-dom";
 import baseUrl from "../BaseUrl";
 import { Toaster } from "react-hot-toast";
+import CardHeader from "../components/CardHeader";
 function AddCourse() {
   const navigate = useNavigate("");
   const [loading, setLoading] = useState(false);
@@ -85,6 +86,7 @@ function AddCourse() {
       <div className="col-xl-12">
                   <div className="card ">
                       <div className="card-body ">
+                      <CardHeader title={"Register a new course"} />
                       <div className="row col-xl-8 mx-auto">
             <div className="mb-8 flex flex-col items-center">
             

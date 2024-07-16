@@ -5,6 +5,7 @@ import { toast } from "react-toastify";
 import baseUrl from "../../BaseUrl";
 import { useNavigate } from "react-router-dom";
 import { Toaster } from "react-hot-toast";
+import CardHeader from "../../components/CardHeader";
 
 function LearningMode() {
   const [loading, setLoading] = useState(false);
@@ -72,7 +73,7 @@ function LearningMode() {
     <div className="row">
             <div className="col-12">
                 <div className="page-title-box d-sm-flex align-items-center justify-content-between">
-                <h4 className="card-title mb-4">Add Cohort</h4>
+                <h4 className="card-title mb-4">Add Learning Mode</h4>
 
                           
                 
@@ -91,17 +92,7 @@ function LearningMode() {
         className="text-start"
         action=""
       >
-        <div className="mb-5 col-6 mx-auto text-center">
-            
-            <img
-              className=" object-cover" width={"80px"}
-              src={'/src/Images/logo.png'}
-              alt="logo"
-            />
-            <p className="text-light-secondary_2 dark:text-dark-secondary_2 font-semibold capitalize">
-             add learning mode below
-            </p>
-          </div>
+        <CardHeader title={"Add learning mode"} />
         <div className="row">
         <div className="mb-3 col-12">
         <label className="form-label">Learning Mode</label>
