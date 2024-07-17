@@ -4,13 +4,14 @@ import '../src/assets/css/app.min.css'
 import '../src/assets/css/bootstrap.min.css'
 import '../src/assets/css/icons.min.css'
 import { Route, Routes, useNavigate } from 'react-router-dom'
+import 'react-toastify/dist/ReactToastify.css';
 import Admin from './AdminPages/Admin'
 import ErrorPage from './Pages/ErrorPage'
 import ForgotPassword from './Pages/ForgotPassword'
 import Signup from './Pages/Signup'
 import Dashboard from './Pages/Dashboard pages/Dashboard'
+
 import { ToastContainer } from 'react-toastify'
-import 'react-toastify/dist/ReactToastify.css';
 
 function App() {
   const navigate = useNavigate()
@@ -37,6 +38,7 @@ function App() {
   }
   return (
     <>
+    <ToastContainer/>
     <Routes>
       <Route path='/' element={<Login />} />
       <Route path='/signup' element={<Signup />} />
@@ -45,7 +47,7 @@ function App() {
       <Route path='/forgot_password' element={<ForgotPassword/>} />        
       <Route path='*' element={<ErrorPage />} />
     </Routes>
-    <ToastContainer/>
+    
   </>
   )
 }

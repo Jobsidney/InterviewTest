@@ -11,7 +11,7 @@ import FeeStatement from "../Financials/FeeStatement";
 import FeeStructure from "../Financials/FeeStructure";
 import ResetPassword from "../Password/ResetPassword";
 import baseUrl from "../../BaseUrl";
-import { toast } from "react-toastify";
+import { toast, ToastContainer } from "react-toastify";
 import FeePayment from "../Financials/FeePayment";
 import Receipt from "../Financials/Receipt";
 import Test from "../Financials/Test";
@@ -132,7 +132,7 @@ function Dashboard() {
             <Route path="/fee_payment" element={<FeePayment />} />
             <Route path="*" element={<ErrorPage />} />
           </Routes>
-      
+          <ToastContainer />
     
     </>
   ) : null;

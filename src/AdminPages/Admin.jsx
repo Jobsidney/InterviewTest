@@ -5,7 +5,7 @@ import AddCourse from "./AddCourse";
 import AddUser from "./AddUser";
 import ErrorPage from "../Pages/ErrorPage";
 import baseUrl from "../BaseUrl";
-import { toast } from "react-toastify";
+import { toast, ToastContainer } from "react-toastify";
 import Students from "./Students";
 import Mentors from "./Mentors";
 import Corhot from "./Courses/Corhot";
@@ -143,7 +143,7 @@ function Admin() {
               <Route path="/transactions/details" element={<StudentTransaction />} />
               <Route path="*" element={<ErrorPage />} />
             </Routes>
-
+            <ToastContainer />
  
 
     </>

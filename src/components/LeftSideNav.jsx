@@ -141,7 +141,7 @@ function LeftSideNav({  userData }) {
                     <div className="menu-title" key="t-menu">Menu</div>
                     
     
-                    <MenuItem component={<Link to="/" />}> 
+                    <MenuItem component={<Link to="/admin" />}> 
                     <div className="">
                                 <a href="" className=" waves-effect mm-active">
                                     <i className="bx bx-home-circle"></i>
