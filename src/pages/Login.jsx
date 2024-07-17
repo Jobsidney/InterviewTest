@@ -219,7 +219,7 @@ function Login() {
                         <div className="mt-5 text-center">
                             
                             <div>
-                                <p>Don't have an account ? <a href="auth-register.html" className="fw-medium text-primary"> Signup now </a> </p>
+                                <p>Don't have an account ? <a href="/signup" className="fw-medium text-primary"> Signup now </a> </p>
                                 {/* <p>© <script>document.write(new Date().getFullYear())</script> Skote. Crafted with <i className="mdi mdi-heart text-danger"></i> by Themesbrand</p> */}
                             </div>
                         </div>
