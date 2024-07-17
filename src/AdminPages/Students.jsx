@@ -5,7 +5,7 @@ import baseUrl from "../BaseUrl";
 import { toast } from "react-toastify";
 import { useNavigate } from "react-router-dom";
 import { Box, IconButton, Modal } from "@mui/material";
-import { Toaster } from "react-hot-toast";
+ 
 import { Modal as BaseModal } from '@mui/base/Modal';
 import { DataGrid,GridToolbar } from "@mui/x-data-grid";
 import EditStatus from "../components/EditStatus";
@@ -214,7 +214,7 @@ function Students() {
 
   return (
     <>
-    <Toaster />
+    
     <Modal
         open={open}
         onClose={handleClose}

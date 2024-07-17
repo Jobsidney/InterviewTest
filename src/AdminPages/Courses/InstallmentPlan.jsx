@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react";
 import { CgSpinnerTwo } from "react-icons/cg";
 import { toast } from "react-toastify";
 import baseUrl from "../../BaseUrl";
-import { Toaster } from "react-hot-toast";
+ 
 import CardHeader from "../../components/CardHeader";
 
 function InstallmentPlan() {
@@ -65,7 +65,7 @@ function InstallmentPlan() {
   return (
 
     <>
-    <Toaster />
+    
     <div className="main-content">
     <div className="page-content">
     <div className="container-fluid">

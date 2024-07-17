@@ -14,7 +14,7 @@ import baseUrl from "../BaseUrl";
 import { useNavigate } from "react-router-dom";
 import { AiFillEyeInvisible } from "react-icons/ai";
 import { AiFillEye } from "react-icons/ai";
-import { Toaster } from "react-hot-toast";
+ 
 import CardHeader from "../components/CardHeader";
 
 function AddUser() {
@@ -213,7 +213,7 @@ function AddUser() {
 
   return (
     <>
-    <Toaster />
+    
     <div className="main-content">
     <div className="page-content">
     <div className="container-fluid">

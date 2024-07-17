@@ -3,7 +3,7 @@ import React, { useState, useEffect } from "react";
 import baseUrl from "../BaseUrl";
 import { toast } from "react-toastify";
 import { useNavigate } from "react-router-dom";
-import { Toaster } from "react-hot-toast";
+ 
 import { Box, IconButton, Modal } from "@mui/material";
 import { DataGrid,GridToolbar } from "@mui/x-data-grid";
 import EditStudentAcademics from "../components/EditStudentAcademics";
@@ -223,7 +223,7 @@ function Mentors() {
 
   return (
     <>
-    <Toaster />
+    
     <Modal
         open={open}
         onClose={handleClose}

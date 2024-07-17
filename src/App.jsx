@@ -9,6 +9,9 @@ import ErrorPage from './Pages/ErrorPage'
 import ForgotPassword from './Pages/ForgotPassword'
 import Signup from './Pages/Signup'
 import Dashboard from './Pages/Dashboard pages/Dashboard'
+import { ToastContainer } from 'react-toastify'
+import 'react-toastify/dist/ReactToastify.css';
+
 function App() {
   const navigate = useNavigate()
 
@@ -42,7 +45,7 @@ function App() {
       <Route path='/forgot_password' element={<ForgotPassword/>} />        
       <Route path='*' element={<ErrorPage />} />
     </Routes>
-    {/* <ToastContainer/> */}
+    <ToastContainer/>
   </>
   )
 }

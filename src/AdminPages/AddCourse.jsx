@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import { toast } from "react-toastify";
 import { useNavigate } from "react-router-dom";
 import baseUrl from "../BaseUrl";
-import { Toaster } from "react-hot-toast";
+ 
 import CardHeader from "../components/CardHeader";
 function AddCourse() {
   const navigate = useNavigate("");
@@ -60,7 +60,7 @@ function AddCourse() {
   };
   return (
     <>
-    <Toaster />
+    
     <div className="main-content">
     <div className="page-content">
     <div className="container-fluid">
